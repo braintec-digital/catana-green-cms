@@ -1,2 +1,2 @@
 # leocraftdigital
-Catana Green CMS
+Catana Green CMS v0.1
