@@ -1,0 +1,37 @@
+/* © LeoCRAFT Digital "Catana", NewsTape CSS */
+.blockName .block .list box div.cover {min-height: 50px;}
+.blockName .block .list box div.cover key {position: absolute; display: flex; top: 0; right: 0; color: #ddd;}
+.blockName .block .list box div.cover key ico {position: relative;}
+.blockName .block .list box div.cover key ico::before {position: absolute; content: ''; height: 35px; width: 0; top: 0; bottom: 0; left: 0; margin: auto; border-left: 1px dotted #ddd;}
+.blockName .block .list box div.cover date {height: 50px; width: 150px; display: flex; justify-content: flex-start; align-items: center;}
+.blockName .block .list box div.cover img {border-top: 2px solid color1A; margin-bottom: 10px;}
+.blockName .block .list box p {position: relative; display: block; margin-bottom: 0; padding: 15px; font-size: 1.5em; font-family: 'fontHead', sans-serif;}
+.blockName .block .list box span {position: relative; display: block; padding: 15px;}
+.blockName .block .list box span::before {position: absolute; content: ''; width: 150px; height: 0; top: 0; left: 0; border-top: 1px dotted color1A;}
+.blockName .block .list box a {display: block; height: 100%; color: colorText; background: #fff;}
+
+.blockName .block.view {background: #fff;}
+.blockName .block .case {position: relative; display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; background: #fff;}
+.blockName .block .case div.cover {width: 50%; height: 100%;}
+.blockName .block .case div.cover img {display: none;}
+.blockName .block .case div.text {width: 50%; height: 100%; padding: 30px;}
+.blockName .block .case div.text h1 {position: relative; padding-bottom: 30px;}
+.blockName .block .case div.text h1::before {position: absolute; display: block; content: ''; left: -30px; bottom: 0; width: 200px; height: 0; border-bottom: 1px solid color1A;}
+.blockName .block .case div.text h2 {font-size: 1.2em; margin-bottom: 15px;}
+.blockName .block .case div.text p {margin-bottom: 15px; line-height: 1.5;}
+.blockName .block ul.gallery {display: flex; justify-content: flex-start; align-items: center; width: 100%; border-top: 1px solid #ddd;}
+.blockName .block ul.gallery li {}
+.blockName .block div.bigtext {padding: 30px; background: #fff; border-top: 1px solid #ddd;}
+.blockName div.social {position: absolute; bottom: 25px; right: 25px;}
+
+@media screen and (max-width: 800px){
+    .blockName .block .case {flex-direction: column;}
+    .blockName .block .case div.cover {width: 100%;}
+    .blockName .block .case div.text h1 {padding-bottom: 15px;}
+    .blockName .block .case div.text h1::before {left: -15px;}
+    .blockName .block .case div.text {width: 100%; padding: 15px 15px 75px 15px;}
+    .blockName .block div.bigtext {padding: 15px;}
+}
+@media screen and (max-width: 540px){
+    
+}

@@ -1,0 +1,73 @@
+.blockName .case.left {min-width: 25%;}
+.blockName .case.right {width: calc(75% - 10px); margin-left: 10px;}
+
+.blockName .case div.text:not(:empty) {padding-top: 10px; margin-top: 10px; border-top: 1px dotted color1B;}
+
+.blockName .case .list {}
+.blockName .case .list li {background: #fff; border: 1px solid #fff;}
+.blockName .case .list li:hover {border: 1px solid color1A;}
+.blockName .case .list li a {color: #555;}
+.blockName .case .list li a pics {position: relative; border-bottom: 1px solid color1B; margin-bottom: 0; background-size: auto 80%;}
+.blockName .case .list li a pics c {position: absolute; display: block; top: 0; left: 0; padding: 10px 15px; font-weight: 100; background: color1B; color: #fff;}
+.blockName .case .list li a pics c:empty {display: none;}
+.blockName .case .list li a pics i {position: absolute; display: flex; justify-content: center; align-items: center; width: 50px; height: 14px; padding-top: 2px; background: color1B; color: #fff; text-align: center; bottom: 0; left: 0; right: 0; margin: auto; transition: 0.25s;}
+.blockName .case .list li a:hover pics i {height: 30px;}
+.blockName .case .list li a p {padding: 10px 15px; min-height: 64px; display: flex; justify-content: flex-start; align-items: center;}
+
+.blockName .case .list .line {position: relative; display: flex; flex-direction: row; justify-content: flex-start; align-items: center; height: 50px; border-top: 1px solid #ddd;}
+.blockName .case .list .line {border-top: none; border-bottom: 1px solid #ddd;}
+.blockName .case .list .line span {position: relative; padding: 0 15px;}
+.blockName .case .list .line span::after {position: absolute; display: block; content: ''; top: 0; bottom: 0; right: 0; margin: auto; height: 31px; width: 0; border-left: 1px solid #ddd;}
+.blockName .case .list .line p { padding: 0 15px;}
+.blockName .case .list .line p i {color: color1B; margin-right: 3px;}
+.blockName .case .list .line p s {background: color2A; color: #fff; font-size: 13px; padding: 2px 5px;}
+.blockName .case .list .line b {position: absolute; top: 0; right: 0; width: 50px; height: 50px; color: color1B; display: flex; justify-content: center; align-items: center; cursor: pointer; transition: 0.25s;}
+.blockName .case .list .line b:hover {color: color1A;}
+.blockName .case .list .line b q {position: absolute; display: flex; justify-content: center; align-items: center; left: -25px; top: 0; bottom: 0; margin: auto; color: #999; font-weight: 100; font-size: 14px; width: 25px; height: 31px; border-left: 1px solid #ddd;}
+.blockName .case .list .line l {position: absolute; display: flex; justify-content: center; align-items: center; top: 0; bottom: 0; right: 85px; margin: auto; font-size: 10px; width: 18px; height: 18px; border: 1px solid #ddd; color: color1B; }
+.blockName .case .list .line l:hover {cursor: pointer; border: 1px solid color1B;}
+.blockName .case .list .line l.none {display: none;}
+
+.blockName .case view {display: flex; flex-direction: row; width: 100%;}
+.blockName .case view gallery {margin-right: 15px; min-width: 35%;}
+.blockName .case view gallery pics {max-width: 450px; width: 100%; margin-bottom: 10px; border: 1px solid #fff; transition: 0.7s;}
+.blockName .case view gallery pics:hover {cursor: pointer; border: 1px solid color1B;}
+
+.blockName .case view ul.gallery {max-width: 450px; width: 100%; display: block; overflow: hidden;}
+.blockName .case view ul.gallery li {width: calc(33.333% - 6.7px); margin: 0 10px 10px 0; float: left;}
+.blockName .case view ul.gallery li:nth-child(3n) {margin-right: 0;}
+.blockName .case view ul.gallery li pics {margin-bottom: 0; transition: 0.25s;}
+.blockName .case view ul.gallery li pics:hover {border: 1px solid color1B; cursor: pointer;}
+
+.blockName .case view layer {flex-direction: column; overflow-y: scroll; justify-content: flex-start; align-items: flex-start; background: #fff; margin: 0 15px 15px 0; width: 100%; height: fit-content;}
+.blockName .case view layer h1 {display: block; width: 100%; font-size: 28px; line-height: 28px; padding: 25px; border-bottom: 1px solid color1B;}
+.blockName .case view layer text {padding: 25px;}
+.blockName .case view layer text blockquote {padding: 15px 15px 15px 30px; font-weight: bold; font-size: 16px; margin-bottom: 15px; border-left: 2px solid color2B;}
+.blockName .case view layer > ul {padding: 10px 25px; border-bottom: 1px solid #eee;}
+.blockName .case view layer > ul li {}
+.blockName .case view layer > ul li::before {color: color1B; content: '*'; padding-right: 10px;}
+
+@media screen and (max-width: 1024px){
+    .blockName .case:first-child {width: 70%; min-width: 70%;}
+    .blockName .case:last-child {width: 30%; min-width: 30%;}
+}
+@media screen and (max-width: 800px){
+    .blockName flex {flex-direction: column;}
+    .blockName .case:first-child,
+    .blockName .case:last-child {width: 100%; min-width: 100%; padding: 0 10px;}
+    .blockName .case .list cols:last-child {padding-right: 0;}
+    .blockName .case > div {margin: 0 0 15px 0;}
+    .blockName .case view {flex-direction: column;}
+    .blockName .case view gallery,
+    .blockName .case view layer {margin-right: 0;}
+    .blockName .case view gallery pics,
+    .blockName .case view ul.gallery {max-width: 100%;}
+    .blockName .case view ul.gallery li {width: calc(20% - 8px);}
+    .blockName .case view ul.gallery li:nth-child(3n) {margin-right: 10px;}
+    .blockName .case view ul.gallery li:nth-child(5n) {margin-right: 0px;}
+}
+@media screen and (max-width: 540px){
+    .blockName .case view ul.gallery li {width: calc(33.333% - 6.7px);}
+    .blockName .case view ul.gallery li:nth-child(3n) {margin-right: 0;}
+    .blockName .case view ul.gallery li:nth-child(5n) {margin-right: 10px;}
+}

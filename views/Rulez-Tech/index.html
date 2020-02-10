@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="@meta->lang"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="@meta->lang"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="@meta->lang" gadget="@meta->device"> <!--<![endif]-->
+<head>
+	<!--- basic page needs -->
+	<base href="@meta->base">
+   	<meta charset="utf-8">
+	<title>@site->title</title>
+	<meta name="description" content="@site->descript">
+	<meta name="author" content="">
+   	<!-- mobile specific metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+ 	<!-- CSS -->
+	<link rel="stylesheet" href="views/Rulez-Tech/css/base.css">
+	<link rel="stylesheet" href="views/Rulez-Tech/css/vendor.css">
+	<link rel="stylesheet" href="views/Rulez-Tech/css/main.css">
+   	<!-- script -->
+	<script src="views/Rulez-Tech/js/modernizr.js"></script>
+	<script src="views/Rulez-Tech/js/pace.min.js"></script>
+   	<!-- favicons -->
+	<link rel="shortcut icon" href="@meta->favicon" type="image/x-icon">
+	<link rel="icon" href="@meta->appicon" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css?family=Exo+2:200,400,800|Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+</head>
+<body id="top" class="@admin">
+	<!-- header -->
+   <header>
+   		<div class="header-logo">
+	      	<a href="" style="background-image: url(userfiles/RulezTech-icon-w.png)">@site->title</a>
+	   	</div>
+		<a id="header-menu-trigger" href="#0">
+		 	<span class="header-menu-text">Menu</span>
+		  	<span class="header-menu-icon"></span>
+		</a>
+		<nav id="menu-nav-wrap">
+			<a href="#0" class="close-button" title="close"><span>Close</span></a>
+	   		<h3>@site->title</h3>
+			<ul class="nav-list" select="mainmenu">
+				<li><a class="smoothscroll" href="#@_view" title="">@_menu</a></li>					
+			</ul>
+			<p class="sponsor-text">Крутая технология - крутой результат. Мы делаем качественн и быстро.</p>
+			<ul class="header-social-list">
+	         	<li><a href="https://www.facebook.com/www.rulez.tech/" target="blank"><i class="fa fa-facebook-square"></i></a></li>
+	         	<!-- <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+	         	<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            	<li><a href="#"><i class="fa fa-behance"></i></a></li>
+	         	<li><a href="#"><i class="fa fa-dribbble"></i></a></li> -->
+	      	</ul>
+		</nav>
+	</header>
+   	<!-- home -->
+   	<section id="home">
+		<div class="overlay"></div>
+		<div class="home-content-table">	
+		   	<div class="home-content-tablecell">
+				<div class="row">
+					<div class="col-twelve">
+						<h3 class="animate-intro">@site->offer</h3>
+						<h1 class="animate-intro">@site->descript</h1>
+						<div class="more animate-intro">
+							<a class="smoothscroll button stroke" href="#about">Узнать больше</a>
+						</div>
+					</div>
+				</div>
+		   	</div>		   
+		</div>
+		<ul class="home-social-list">
+	      	<li class="animate-intro"><a href="https://www.facebook.com/www.rulez.tech/" target="blank"><i class="fa fa-facebook-square"></i></a></li>
+	      	<!-- <li class="animate-intro"><a href="#"><i class="fa fa-twitter"></i></a></li>
+	      	<li class="animate-intro"><a href="#"><i class="fa fa-instagram"></i></a></li>
+         	<li class="animate-intro"><a href="#"><i class="fa fa-behance"></i></a></li>
+			<li class="animate-intro"><a href="#"><i class="fa fa-dribbble"></i></a></li> -->
+	   	</ul>
+		<div class="scrolldown">
+			<a href="#about" class="scroll-icon smoothscroll">		
+		   	Scroll Down		   	
+		   	<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			</a>
+		</div>
+   </section>
+   <!-- about  -->
+   <section id="about" getpage="about">
+		<div class="row about-wrap">
+			<div class="col-full">
+			<div class="about-profile-bg"></div>
+				<div class="intro">
+					<h3 class="animate-this">@getpage->title</h3>
+					<p class="lead animate-this">@getpage->text</p>
+				</div>
+			</div>
+		</div>
+   </section>
+   <!-- about  -->
+   <section id="services" getpage="services">
+		<div class="overlay"></div>
+		<div class="gradient-overlay"></div>
+		<div class="row narrow section-intro with-bottom-sep animate-this">
+			<div class="col-full">
+				<h3>@getpage->title</h3>
+				<h1>@getpage->descript</h1>
+				<p class="lead">@getpage->text</p>
+			</div>
+		</div>
+   		<div class="row services-content">
+			<div class="services-list block-1-2 block-tab-full group" getrecords="services">
+				<div class="bgrid service-item animate-this">
+					<span class="icon"><i class="@record->alt_img"></i></span>
+					<div class="service-content">
+						<h3 class="h05">@record->title</h3>
+						<p>@record->descript</p>
+					</div>
+				</div>
+			</div>
+   		</div>		
+   </section>
+   <!-- portfolio -->
+   <section id="portfolio">
+		<div class="intro-wrap" getpage="portfolio">
+			<div class="row narrow section-intro with-bottom-sep animate-this">
+				<div class="col-twelve">
+					<h3>@getpage->title</h3>
+					<h1>@getpage->descript</h1>
+					<p class="lead">@getpage->text</p>	   			
+				</div>   		
+			</div>
+   		</div>
+		<div class="row portfolio-content">
+			<div class="col-twelve">
+				<div id="folio-wrap" class="bricks-wrapper">
+					<div class="brick folio-item">
+						<div class="item-wrap animate-this" data-src="views/Rulez-Tech/images/portfolio/gallery/g-shutterbug.jpg" data-sub-html="#01"> 	
+							<a href="#" class="overlay">
+								<img src="views/Rulez-Tech/images/portfolio/shutterbug.jpg" alt="Skaterboy">	                     
+								<div class="item-text">
+									<span class="folio-types">Web Development</span>
+									<h3 class="folio-title">Shutterbug</h3>   					   
+								</div>                                        
+							</a>
+							<a href="https://www.behance.net/" class='details-link' title="details">
+								<i class="icon-link"></i>
+							</a>
+						</div>
+						<div id="01" class='hide'>
+							<h4>Shutterbug</h4>
+							<p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
+						</div>
+					</div>
+
+					<div class="brick folio-item">
+						<div class="item-wrap animate-this" data-src="views/Rulez-Tech/images/portfolio/gallery/g-yellowwall.jpg" data-sub-html="#02">
+							<a href="#" class="overlay">
+								<img src="views/Rulez-Tech/images/portfolio/yellowwall.jpg" alt="Shutterbug">
+								<div class="item-text">
+									<span class="folio-types">Marketing</span>
+									<h3 class="folio-title">Yellow Wall</h3>
+								</div>
+							</a>
+							<a href="https://www.behance.net/" class='details-link' title="details">
+								<i class="icon-link"></i>
+							</a>
+						</div>
+						<div id="02" class='hide'>
+							<h4>Yellow Wall</h4>
+							<p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
+						</div>
+					</div>
+	        		<div class="brick folio-item">
+						<div class="item-wrap animate-this" data-src="views/Rulez-Tech/images/portfolio/gallery/g-architecture.jpg" data-sub-html="#03" >   	
+							<a href="#" class="overlay">
+								<img src="views/Rulez-Tech/images/portfolio/architecture.jpg" alt="Explore">
+								<div class="item-text">
+									<span class="folio-types">Web Design</span>
+									<h3 class="folio-title">Architecture</h3>
+								</div>
+							</a>
+							<a href="https://www.behance.net/" class='details-link' title="details">
+								<i class="icon-link"></i>
+							</a>
+						</div>
+	               		<div id="03" class='hide'>
+							<h4>Architecture</h4>
+							<p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
+						</div>               
+	        		</div>
+					<div class="brick folio-item">
+	               		<div class="item-wrap animate-this"  data-src="views/Rulez-Tech/images/portfolio/gallery/g-minimalismo.jpg"  data-sub-html="#04" >
+							<a href="#" class="overlay">
+								<img src="views/Rulez-Tech/images/portfolio/minimalismo.jpg" alt="Minimalismo">	                     
+								<div class="item-text">	     					    
+									<span class="folio-types">Web Design</span>
+									<h3 class="folio-title">Minimalismo</h3>
+								</div>                                        
+							</a>
+							<a href="https://www.behance.net/" class='details-link' title="details">
+								<i class="icon-link"></i>
+							</a>
+	               		</div>
+	               		<div id="04" class='hide'>
+							<h4>Minimalismo</h4>
+							<p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
+						</div>  	               
+	        		</div>
+					<div class="brick folio-item">
+						<div class="item-wrap animate-this"  data-src="views/Rulez-Tech/images/portfolio/gallery/g-skaterboy.jpg"  data-sub-html="#05" >  	
+							<a href="#" class="overlay">
+								<img src="views/Rulez-Tech/images/portfolio/skaterboy.jpg" alt="Bicycle">	                     
+								<div class="item-text">	     					    
+									<span class="folio-types">Branding</span>
+									<h3 class="folio-title">Skaterboy</h3>
+								</div>                                        
+							</a>
+							<a href="https://www.behance.net/" class='details-link' title="details">
+								<i class="icon-link"></i>
+							</a>
+						</div>
+	               		<div id="05" class='hide'>
+							<h4>Skaterboy</h4>
+							<p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="https://www.behance.net/">Details</a></p>
+						</div>
+	        		</div>
+					<div class="brick folio-item">
+						<div class="item-wrap animate-this"  data-src="views/Rulez-Tech/images/portfolio/gallery/g-salad.jpg"  data-sub-html="#06">     	
+							<a href="#" class="overlay">
+								<img src="views/Rulez-Tech/images/portfolio/salad.jpg" alt="Salad">
+								<div class="item-text">
+									<span class="folio-types">Branding</span>
+									<h3 class="folio-title">Salad</h3>
+								</div>
+							</a>
+							<a href="https://www.behance.net/" class='details-link' title="details">
+								<i class="icon-link"></i>
+							</a>
+						</div>
+						<div id="06" class='hide'>
+							<h4>Salad</h4>
+							<p>Lorem ipsum Dolor deserunt labore sint officia. Magna et aute enim proident tempor sunt quis nulla voluptate fugiat velit. <a href="www.behance.net">Details</a></p>
+						</div>	               
+	        		</div>
+				</div>
+			</div>
+		</div>
+   </section>
+   <!-- Testimonials Section -->
+   	<section id="testimonials">
+		<div class="row" getpage="reviews">
+			<div class="col-twelve">
+				<h2 class="animate-this">@getpage->title</h2>
+			</div>   		
+		</div>   	
+    	<div class="row flex-container">
+			<div id="testimonial-slider" class="flex-slider animate-this">
+				<ul class="slides" getrecords="reviews">
+					<li>
+						<p>@record->descript</p> 
+						<div class="testimonial-author">
+							<img src="@record->img" alt="@record->title">
+							<div class="author-info">
+								@record->title
+								<span class="position">@record->keywords</span>
+							</div>
+						</div>                 
+					</li>
+				</ul>
+			</div> 
+      	</div>
+   	</section>
+	<!-- stats -->
+   	<section id="clients">
+		<div class="row animate-this">
+			<div class="col-twelve">
+				<div class="client-lists owl-carousel">
+					<div><img src="views/Rulez-Tech/images/clients/catana.png" alt=""></div>
+					<div><img src="views/Rulez-Tech/images/clients/magento.png" alt=""></div>
+					<div><img src="views/Rulez-Tech/images/clients/wordpress.png" alt=""></div>
+					<div><img src="views/Rulez-Tech/images/clients/evernote.png" alt=""></div>
+					<div><img src="views/Rulez-Tech/images/clients/jQuery.png" alt=""></div>
+				</div>
+			</div>
+		</div>
+   	</section>
+	<!-- contact -->
+   	<section id="contact">
+      	<div class="overlay"></div>
+		<div class="row narrow section-intro with-bottom-sep animate-this" getpage="contact">
+			<div class="col-twelve">
+				<h3>@getpage->menu</h3>
+				<h1>@getpage->title</h1>
+				<p class="lead">@getpage->text</p>
+			</div> 
+   		</div>
+		<div class="row contact-content">
+			<div class="col-seven tab-full animate-this">
+				<h5>Отправить нам сообщение</h5>
+				<form name="contactForm" id="contactForm" method="post">
+					<div class="form-field">
+						<input name="contactName" type="text" id="contactName" placeholder="@word->name" value="" minlength="2" required="">
+					</div>
+					<div class="row">
+						<div class="col-six tab-full">
+							<div class="form-field">
+								<input name="contactEmail" type="email" id="contactEmail" placeholder="email" value="" required="">
+							</div>		      			   
+						</div>
+						<div class="col-six tab-full">	            
+							<div class="form-field">
+								<input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="">
+							</div>		     				   
+						</div>
+					</div>                    
+					<div class="form-field">
+						<textarea name="contactMessage" id="contactMessage" placeholder="@word->message" rows="10" cols="50" required=""></textarea>
+					</div>
+					<div class="form-field">
+						<button class="submitform">@word->send</button>
+						<div id="submit-loader">
+							<div class="text-loader">Sending...</div>
+							<div class="s-loader">
+								<div class="bounce1"></div>
+								<div class="bounce2"></div>
+								<div class="bounce3"></div>
+							</div>
+						</div>
+					</div>
+				</form>
+				<div id="message-warning"></div> 
+				<div id="message-success">
+					<i class="fa fa-check"></i>Ваше сообщение было отправлено, спасибо!<br>
+				</div>
+			</div>
+			<div class="col-four tab-full contact-info end animate-this">
+				<h5>Контактная информация</h5>
+				<div class="cinfo">
+					<h6>Где мы находимся:</h6>
+					<p>
+						@site->addr<br>
+						@site->country, @site->city<br>
+						@site->zip
+					</p>
+				</div>
+				<div class="cinfo">
+					<h6>Напишите нам:</h6>
+					<p>@site->mail<br>info@rulez.tech</p>
+				</div>
+				<div class="cinfo">
+					<h6>Позвоните нам:</h6>
+					<p array="general:tel">
+						<span>@site->tel</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- footer -->
+	<footer>
+     	<div class="footer-main">
+			<div class="row">
+				<div class="col-five tab-full footer-about">
+					<h4 class="h05">@site->title</h4>
+					<p>Наш лозунг гласит "RULEZ TECH, RULEZ DONE!", что значит - крутая технология дает крутой результат. Мы первые кто работает на Catana CMS, но не единственные.</p>
+				</div>
+				<div class="col-three tab-full footer-social">
+					<h4 class="h05">Следите за нами.</h4>
+					<ul class="list-links">
+						<li><a href="https://www.facebook.com/www.rulez.tech/" target="blank">Facebook</a></li>
+						<!-- <li><a href="#">Twitter</a></li>
+						<li><a href="#">Instagram</a></li>
+						<li><a href="#">Behance</a></li>
+						<li><a href="#">Dribble</a></li> -->
+					</ul>
+				</div>
+				<div class="col-four tab-full footer-subscribe end">
+					<h4 class="h05">Подпишитесь на нас.</h4>
+					<p>Получайте интересные новости о том, что мы делаем.</p>
+					<div class="subscribe-form">
+						<form id="mc-form" class="group" novalidate="true">
+							<input type="email" value="" name="dEmail" class="email" id="mc-email" placeholder="type email" required="">
+							<button><i class="icon-mail"></i></button>
+							<label for="mc-email" class="subscribe-message"></label>
+						</form>
+					</div>
+				</div>
+			</div>
+   		</div>
+		<div class="footer-bottom">
+			<div class="row">
+				<div class="col-twelve">
+					<div class="copyright">
+						<span>© @site->copyright @year.</span>
+						<span>Powered by <a href="https://catana.leocraft.digital" target="blank">Catana CMS</a></span>		         	
+					</div>
+				</div>
+			</div>
+		</div>
+      	<div id="go-top">
+		   	<a class="smoothscroll" title="Back to Top" href="#top">
+		   		<i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+		   	</a>
+		</div>
+   	</footer>
+   	<div id="preloader">
+    	<div id="loader"></div>
+   	</div>
+   <!-- Java Script --> 
+   <script src="views/Rulez-Tech/js/jquery-2.1.3.min.js"></script>
+   <script src="views/Rulez-Tech/js/plugins.js"></script>
+   <script src="views/Rulez-Tech/js/main.js"></script>
+</body>
+</html>

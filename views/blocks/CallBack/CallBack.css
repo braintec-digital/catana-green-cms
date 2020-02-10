@@ -1,0 +1,17 @@
+.blockName .flex {flex-direction: column; justify-content: center; align-items: center; border-top: 1px solid #eee; padding-top: 50px;}
+.blockName .flex div {max-width: 600px; text-align: center; color: #fff; margin-top: 25px; font-size: 18px;}
+.blockName .flex form {overflow: hidden; display: flex; flex-direction: row; justify-content: center; width: fit-content; align-items: center; box-shadow: 0 5px 20px rgba(0,0,0,0.3); background: #fff; border: 1px solid color1B; transition: 0.5s;}
+.blockName .flex form field {height: 50px;}
+.blockName .flex form field send {position: relative; display: flex; justify-content: center; align-items: center; padding: 0 15px; height: 100%; background: color1B; color: #fff; width: auto;}
+.blockName .flex form field send:hover {background: color1A;}
+
+@media screen and (max-width: 800px){
+    
+}
+@media screen and (max-width: 540px){
+    .blockName .flex form {flex-direction: column; border-radius: 0; width: 100%; max-width: 350px; box-shadow: none;}
+    .blockName .flex form field {align-items: center;}
+    .blockName .flex form field:first-child input,
+    .blockName .flex form field:nth-child(2) input,
+    .blockName .flex form field send {width: 100%;}
+}

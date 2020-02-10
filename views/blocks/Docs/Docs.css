@@ -1,0 +1,55 @@
+.blockName .case.left {min-width: 25%;}
+.blockName .case.right {width: 75%; background: #fff; padding: 30px; border-left: 1px solid color1A;}
+
+.blockName .flex .case menu {background: transparent;}
+.blockName .flex .case menu ul {margin: 0;}
+.blockName .flex .case menu ul li {border-top: none;}
+.blockName .flex .case menu ul li a {padding-left: 10px; font-size: 17px;}
+.blockName .flex .case menu ul li a span {display: none;}
+.blockName .flex .case menu ul li.open::after {position: absolute; content: ''; width: 50px; height: 0; right: 0; top: 0; bottom: 0; margin: auto; border-top: 1px dotted color1A; transform: none;}
+.blockName .flex .case menu ul li.open::before {width: 5px; height: 5px; top: 0; bottom: 0; right: -2.5px; margin: auto; background: color1A;}
+.blockName .flex .case menu ul li.open a {color: color1A;}
+
+.blockName h1 {padding-bottom: 20px; margin-bottom: 20px;}
+.blockName .text hr {position: relative; margin: 50px 0 70px; border: none; border-top: 1px solid #eee; overflow: visible;}
+.blockName .text hr::before {position: absolute; content: ''; top: -1px; left: 0; width: 50px; height: 0; border-top: 1px solid color1A;}
+.blockName .text > p b {color: #029693; font-weight: 500;}
+.blockName .text > p i {color: #888; font-style: italic;}
+.blockName .text u {font-weight: 100; color: color1A; text-decoration: none;}
+.blockName .text strike {font-weight: 100; color: #c19203; text-decoration: none;}
+.blockName .text p a,
+.blockName .text table a {border-bottom: 1px solid color1A;}
+.blockName .text p a:hover {}
+
+.blockName .text pre {position: relative; overflow-x: auto; font-family: 'Courier New', Courier, monospace; padding: 5px 15px 5px 20px; font-size: 14px; line-height: 1.3; background: #f7f7f7; color: #aaa; border: 1px solid color1A; font-weight: 100; margin-bottom: 20px;}
+.blockName .text pre::before {position: absolute; content: ''; top: 3px; left: 3px; width: 10px; height: calc(100% - 6px); background: #4c6db1;}
+.blockName .text pre b {font-weight: 100; color: #00807d;}
+.blockName .text pre i {font-weight: 100; color: color1A; text-decoration: none;}
+.blockName .text pre u {font-weight: 100; color: #c19203; text-decoration: none;}
+.blockName .text pre strike {font-weight: 100; color: #333; text-decoration: none;}
+
+.blockName .text ol {position: relative; list-style: none; color: color1A; margin: 50px 0; border-bottom: 1px solid #ddd;}
+.blockName .text ol::before {position: absolute; content: ''; bottom: -1px; right: 0; width: 50px; height: 0; border-top: 1px solid color1A;}
+.blockName .text ol li {display: inline-block; margin-left: 0; margin-right: 5px;}
+.blockName .text ol li a {padding: 5px 10px; background: #eee; display: inline-block;}
+.blockName .text ol li a:hover {background: color1A; color: #eee;}
+
+.blockName div.text table tr:first-child td {border-bottom: 1px solid color1A; text-align: center; padding: 10px 5px;}
+.blockName div.text table td:first-child {border-left: none;}
+.blockName div.text table td:last-child {border-right: none;}
+.blockName div.text table.keys td {width: 25%;}
+.blockName div.text table.keys td:last-child {width: 50%;}
+
+@media screen and (max-width: 1024px){
+    .blockName .case:first-child {width: 70%; min-width: 70%;}
+    .blockName .case:last-child {width: 30%; min-width: 30%;}
+}
+@media screen and (max-width: 800px){
+    .blockName flex {flex-direction: column;}
+    .blockName .case.left,
+    .blockName .case.right {min-width: 100%;}
+    .blockName .case.right {padding: 15px;}
+}
+@media screen and (max-width: 540px){
+    
+}

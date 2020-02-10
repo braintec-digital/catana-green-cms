@@ -1,0 +1,39 @@
+SetEnvIfNoCase user-Agent ^FrontPage [NC,OR]
+SetEnvIfNoCase user-Agent ^Java.* [NC,OR]
+SetEnvIfNoCase user-Agent ^Microsoft.URL [NC,OR]
+SetEnvIfNoCase user-Agent ^MSFrontPage [NC,OR]
+SetEnvIfNoCase user-Agent ^Offline.Explorer [NC,OR]
+SetEnvIfNoCase user-Agent ^[Ww]eb[Bb]andit [NC,OR]
+SetEnvIfNoCase user-Agent ^Zeus [NC]
+
+<files .htaccess="">
+order allow,deny
+deny from all
+</files>
+
+AddDefaultCharset UTF-8
+RewriteEngine On
+DirectoryIndex index.php
+
+Options All -Indexes
+Options +FollowSymlinks
+
+RewriteRule (.*)\.html$ $1 [R=301,L]
+RewriteRule (.*)\.htm$ $1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} !\?
+RewriteCond %{REQUEST_URI} !\&
+RewriteCond %{REQUEST_URI} !\=
+RewriteCond %{REQUEST_URI} !\.
+RewriteCond %{REQUEST_URI} ![^\/]$
+RewriteRule ^(.*)\/$ /$1 [R=301,L]
+
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
+
+<Files php.ini>
+order allow,deny
+deny from all
+</Files>

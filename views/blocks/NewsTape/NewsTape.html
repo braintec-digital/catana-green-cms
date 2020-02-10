@@ -1,0 +1,36 @@
+<section class="@blockName @pageName">
+    <div class="block">
+        <div id="more" class="list margin" cols="3" shape="img" select="records:thispage:all:num:asc">
+            <box class="hide show-in">
+                <a href="@record->url">
+                    <date>@record->date</date>
+                    <div class="cover" data-src="@record->img" style="background-image: url(@placeholder)">
+                        <img data-src="@record->img" src="@placeholder" alt="@record->title">
+                    </div>
+                    <p>@record->title</p>
+                    <span>@decord->descript</span>
+                </a>
+            </box>
+        </div>
+        <more not="main" type="click" next="12" max="">@word->next</more>
+    </div>
+</section>
+@blade
+<section class="@blockName @pageName">
+    <div class="block view">
+        <div class="case" shape='square'>
+            <div class="cover" style="background-image: url(@record->img)">
+                <img src="@record->img" alt="@record->title"/>
+            </div>
+            <div class="text">
+                <h1>@record->title</h1>
+                @record->short
+            </div>
+            @socialinks
+        </div>
+        <ul class="gallery" cols="6" shape="square" array="records:gallery">
+            <li><div class="cover" style="background-image: url(@arr->item)"></div></li>
+        </ul>
+        <div class="bigtext">@record->text</div>
+    </div>
+</section>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="@meta->lang"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="@meta->lang"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="@meta->lang" gadget="@meta->device"> <!--<![endif]-->
+    <head>
+        <base href="@meta->base">
+        <title>@meta->title</title>
+        <meta name="title" content="@meta->title"/>
+        <meta name="description" content="@meta->descript"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta property="fb:pages" content="@site->facebook_id"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:site_name" content="@site->title"/>
+        <meta property="og:url" content="@meta->url"/>
+        <meta property="og:title" content="@meta->title"/>
+        <meta property="og:description" content="@meta->descript"/>
+        <meta property="og:image" content="@meta->img"/>
+        <meta name="H1" content="@meta->title"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="cms" content="Povered By Catana https://catana.leocraft.digital">
+        <link rel="canonical" href="@meta->canonical"/>
+        <link rel="apple-touch-icon" href=""/>
+        <link rel="shortcut icon" href=""/>
+        <link href="https://fonts.googleapis.com/css?family=Exo+2:200,400,800|Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
+        <!-- @meta->addones -->
+    </head>
+    <body id="transition_disabled">
+        <div id="root">
+            <div class="contacts" device="desktop">
+                <div class="flex">
+                    <div><i class='mdi mdi-map-marker fs-5x'></i><p>@site->country, @site->city</p></div>
+                    <div><i class='mdi mdi-email fs-5x'></i><a href="mailto:@site->mail">@site->mail</a></div>
+                    <div>
+                        <i class='mdi mdi-phone fs-5x'></i>
+                        <div class="tel" array="general:tel">
+                            <a href="tel:@site->call">@site->tel</a>
+                        </div>
+                    </div>
+                    <div class="social-links" array="general:social">
+                        <a href="@site->social" target="blank" rel=”nofollow”><i class="social mdi mdi-@site->social-name fs-3x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div id="listener">
+                <nav id='fix' class="catana">
+                    <a device="mobile" href="/"><img src="" alt="logo"/></a>
+                    <button id="mobilenav"><div></div><div></div><div></div></button>
+                    <div class="flex">
+                        <a device="desktop" href="/"><img src="" alt="logo"/></a>
+                        <ul>
+                            @rootmenu
+                        </ul>
+                    </div>
+                    @socialinks
+                </nav>
+            </div>
+            <header for="main" class="parallax-bg" style="background-image: url();">
+                <div class="block parallax-z1">
+                    <div>
+                        <big>@site->title</big>
+                        <p>@site->descript</p>
+                        <span>@site->offer</span>
+                    </div>
+                </div>
+            </header>
+        
+            <content id="page">@page->contents</content>
+        
+            <footer style='background-image: url()'>
+                <div class="flex" cols="2">
+                    <div>
+                        <big>@word->contacts</big>
+                        <ul class="contacts">
+                            <div array="general:tel">
+                                <li><i class="mdi mdi-phone fs-4x"></i><a href="tel:@site->call">@site->tel</a></li>
+                            </div>
+                            <li><i class="mdi mdi-calendar-check fs-4x"></i>@site->graph</li>
+                            <li><i class="mdi mdi-map-marker fs-4x"></i><address>@site->city, @site->addr</address></li>
+                            <li><i class="mdi mdi-email fs-4x"></i><a href="mailto:@site->mail">@site->mail</a></li>
+                            <li>
+                                <i class="mdi mdi-share-variant fs-4x"></i>
+                                <div class="social-links" array="general:social">
+                                    <a href="@site->social" target="blank" rel=”nofollow”><i class="social mdi mdi-@site->social-name fs-3x"></i></a>
+                                </div>
+                            </li>
+                            <li><p><i>©</i>@site->copyright @year</p></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <big>@word->pages</big>
+                        <ul select="rootmenu">
+                            <li><a href="@record->url">@record->menu</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <dialog></dialog>
+        <!-- @site->microdata -->
+        @site->style
+        @site->extantion
+    </body>
+</html>

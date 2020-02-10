@@ -1,0 +1,82 @@
+<section class="@blockName @pageName">
+	<div class='flex'>
+		<div class="case left">
+			<include file="views/blocks/SearchRecords/SearchRecords.php" view="" login="" on="1"></include>
+			<menu>
+				<big><ico><i class='mdi mdi-menu fs-6x'></i></ico>@word-partscat</big>
+				<ul>@secondMenu</ul>
+			</menu>
+		</div>
+		<div class="case right">
+			<ul id="more" class="list margin" cols="3" shape="square" datasql="records:page_id=3:num:nolimit:asc">
+				<li>
+					<a href="@_url">
+						<div class="cover" style="background-image: url(@_img)">
+							<c>@_param1</c>
+							<i class="mdi mdi-dots-horizontal fs-5x"></i>
+						</div>
+						<p>@_title</p>
+					</a>
+					<div class="line">
+						<span>@_instock</span>
+						<p><i>$</i>@_price @_discount</p>
+						@_cartype
+					</div>
+				</li>
+			</ul>
+			<more type="click" next="12" max="">@word-next</more>
+			<div>
+				<h1>@page_title</h1>
+				<div class="text">@page_text</div>
+			</div>
+		</div>
+	</div>
+</section>
+*\cut-block\*
+<section class="@blockName @pageName">
+	<flex class='shop'>
+		<case class='view'>
+			<list>
+                <view adminrecord proportions="square">
+					<gallery>
+						<pics style="background-image: url(@this_img)"></pics>
+						<ul class='gallery' cols='3' proportions="square" datasql="record_img:thisrecord:num:nolimit:asc">
+							<li><a class="modal modal-img" href="@_img"><pics style="background-image: url(@_img)"></pics></a></li>
+						</ul>
+					</gallery>
+                    
+                    <layer @_selecthis mycart>
+                        <h1 field='title_lang'>@this_title</h1>
+						<line>
+							<span>@this_instock</span>
+							<p><i>@site-money</i>@this_price</p>
+							@this_cartype
+						</line>
+						<tags>@this_tags</tags>
+						<text>@this_text</text>
+                    </layer>
+                </view>
+            </list>
+
+		</case>
+		<case>
+			<menu>
+				<big><ico><i class='mdi mdi-menu fs-6x'></i></ico>@word-partscat</big>
+				<ul>@secondMenu</ul>
+			</menu>
+
+			<button class="contactme callback" place="перезвоните мне">
+				<ico style="background-image: url(https://trone.site/engine/img/callback.jpg)"></ico>Хотите мы Вам перезвоним?
+			</button>
+		</case>
+	</flex>
+</section>
+<div itemscope itemtype="http://schema.org/Product">
+	<meta itemprop="name" content="@this_title"/>
+	<meta itemprop="description" content="@this_descript"/>
+	<meta itemprop="image" content="@this_img"/>
+	<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+		<meta itemprop="price" content="@this_ogprice"/>
+		<meta itemprop="priceCurrency" content="@site-money"/>
+	</div>
+</div>

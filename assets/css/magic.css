@@ -1,0 +1,393 @@
+/* © LeoCRAFT Digital, Magic CSS for "Catana" */
+#transition_disabled * {-webkit-transition: none !important;-moz-transition: none !important;-ms-transition: none !important;-o-transition: none !important;transition: none !important;}
+html,body {width:100%; overflow-x:hidden; scroll-behavior: smooth;}
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,
+dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main{display:block;}
+body{line-height:1; min-height: 100vh;}
+body *.opacity{opacity:0;}
+body *.opacity.show{opacity:1;}
+ol,ul{list-style:none;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after {content:''; content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+*,*::after,*::before{box-sizing:border-box;}
+*:focus{outline:none;}
+a {text-decoration: none; color: colorText;}
+a:hover {cursor: pointer;}
+nav a, div.contacts a {color: colorText;}
+/* a,span>a,div>a{display:inline;} */
+b,bold{font-weight:600;}
+address{display:inline;}
+div[itemscope] {display: none;}
+/* select text style */
+::-moz-selection    {background:color1B;color:#fff;}
+::-webkit-selection {background:color1B;color:#fff;}
+::selection         {background:color1B;color:#fff;}
+::-ms-selection     {background:color1B;color:#fff;}
+::-o-selection      {background:color1B;color:#fff;}
+/* scrollbar style */
+::-scrollbar {direction:rtl;width: 5px;background: #fff;transition: 0.3s;-webkit-transition: 0.3s;-moz-transition:0.3s;-o-transition:0.3s;}
+::-scrollbar-track {background: #fff;}
+::-scrollbar-thumb {background: colorScroll;}
+::-scrollbar-thumb:hover {background: colorScrollH;}
+::-webkit-scrollbar {direction:rtl;width:5px;background: #fff;transition:0.3s;-webkit-transition:0.3s;-moz-transition:0.3s;-o-transition:0.3s;}
+::-webkit-scrollbar-track {background: #fff;}
+::-webkit-scrollbar-thumb {background: colorScroll;}
+::-webkit-scrollbar-thumb:hover {background: colorScrollH;}
+::-moz-scrollbar {direction: rtl;width:5px;background: #fff;transition:0.3s;-webkit-transition:0.3s;-moz-transition:0.3s;-o-transition:0.3s;}
+::-moz-scrollbar-track {background: #fff;}
+::-moz-scrollbar-thumb {background: colorScroll;}
+::-moz-scrollbar-thumb:hover {background: colorScrollH;}
+/* pleaseholder style */
+::-webkit-input-placeholder {color:#ccc;text-overflow:ellipsis;font-weight: 100;}
+::-moz-placeholder          {color:#ccc;text-overflow:ellipsis;font-weight: 100;}
+:-moz-placeholder           {color:#ccc;text-overflow:ellipsis;font-weight: 100;}
+:-ms-input-placeholder      {color:#ccc;text-overflow:ellipsis;font-weight: 100;}
+:focus::-webkit-input-placeholder {text-indent:50px;opacity:0;transition:opacity 0.3s ease, text-indent 0.3s ease;}
+:focus::-moz-placeholder          {text-indent:50px;opacity:0;transition:opacity 0.3s ease, text-indent 0.3s ease;}
+:focus:-moz-placeholder           {text-indent:50px;opacity:0;transition:opacity 0.3s ease, text-indent 0.3s ease;}
+:focus:-ms-input-placeholder      {text-indent:50px;opacity:0;transition:opacity 0.3s ease, text-indent 0.3s ease;}
+/* undocumented tags */
+style,script,schema,#Google-Search {display: none;}
+#root {position: relative; display: block; margin: 0 auto; transition: 0.5s; overflow: hidden; background: colorBody;}
+#root {font-size: 18px; line-height: 1.2; color: colorText;}
+* {box-sizing: border-box; background-size: cover; background-position: center; background-repeat: no-repeat;}
+ico {display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; transition: 0.3s;}
+h1, h2, h3, h4, h5, h6, big {font-family: 'fontHead', sans-serif; color: colorH;}
+#root, #modal {font-family: 'fontText', sans-serif; font-weight: lighter;}
+footer::before {position: absolute; display: block; content: ''; top: 0; right: 0; bottom: 0; left: 0; margin: auto; background: colorFooter; opacity: 0.9; z-index: 0;}
+
+section, header, footer, nav {position: relative; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-flow: wrap; -ms-flex-flow: wrap; flex-flow: wrap; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; width: 100%;}
+#page {position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%; height: auto;}
+
+#breadcrumbs {padding-bottom: 0; padding-top: 0;}
+#breadcrumbs ol {position: relative; display: flex; flex-direction: row; z-index: 10;}
+#breadcrumbs ol::after {position: absolute; content: ''; bottom: 0; left: 0; width: 100%; height: 0; border-top: 1px solid #eee;}
+#breadcrumbs ol li {width: auto; white-space: nowrap;}
+#breadcrumbs ol li a {display: flex; justify-content: center; align-items: center; color: #aaa; height: 50px; font-size: 13px;}
+#breadcrumbs ol li a span {display: flex; justify-content: flex-start; align-items: center; padding: 0 10px; transition: 0.25s; border-left: 1px solid #ddd;}
+#breadcrumbs ol li a span.hide {display: none;}
+#breadcrumbs ol li a span i {margin-right: 5px;}
+#breadcrumbs ol li a span:empty {display: none;}
+#breadcrumbs ol li a span:first-letter {text-transform: uppercase;}
+#breadcrumbs ol li a:hover {color: color1B;}
+#breadcrumbs ol li:last-child a {color: color1B; pointer-events: none; cursor: default;}
+#breadcrumbs ol li:first-child a span {border-left: none; padding-left: 0;}
+#breadcrumbs ol li a.word:first-child {width: auto;}
+
+.block {position: relative; display: block; margin: auto; width: 100%;}
+.flex {position: relative; display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start; margin: auto; width: 100%;}
+.list {position: relative; display: flex; display: -webkit-flex; flex-direction: row; -webkit-flex-direction: row; flex-wrap: wrap; -webkit-flex-wrap: wrap; width: 100%; transition: 0.5s;}
+.cover {position: relative; display: block; min-width: 100px; min-height: 100px; border: none; background-color: #fff; background-size: cover; background-position: center; background-repeat: no-repeat;}
+img {max-width: 100%;}
+.cover img {display: none;}
+[data-src=''] {display: none;}
+[shape=img] .cover img {display: block;}
+/* date */
+date {display: block; padding: 10px;}
+date * {display: inline;}
+date d {font-size: 20px; margin-right: 5px;}
+date m {font-size: 14px; margin-right: 5px;}
+date y {font-size: 12px;}
+/* font size */
+.fs-1x {font-size: 10px;}
+.fs-2x {font-size: 15px;}
+.fs-3x {font-size: 20px;}
+.fs-4x {font-size: 25px;}
+.fs-5x {font-size: 30px;}
+.fs-6x {font-size: 35px;}
+.fs-7x {font-size: 40px;}
+.fs-8x {font-size: 45px;}
+.fs-9x {font-size: 50px;}
+/* Show Effects */
+.show, .show-up, .show-left, .show-right, .show-up, .show-in, .show-out, .show-rotate > * {transition: 0.5s; -webkit-transition: 0.5s;}
+.hide.show {opacity: 0;}
+.hide.show-left {opacity: 0; transform: translateX(100px);}
+.hide.show-right {opacity: 0; transform: translateX(-100px);}
+.hide.show-up {opacity: 0; transform: translateY(100px);}
+.hide.show-in {opacity: 0; transform: scale(0.9);}
+.hide.show-out {opacity: 0; transform: scale(1.1);}
+.show-rotate {-webkit-perspective: 750; perspective: 750;}
+.hide.show-rotate > * {opacity: 0; transform-style: preserve-3d; transform: rotateY(90deg);}
+/* Contacts Top */
+div.contacts {position: relative; display: flex; justify-content: center; align-items: center; height: 75px; width: 100%; background: color1A; font-size: 0.9em;}
+div.contacts .flex {display: flex; justify-content: space-between; align-items: center;}
+div.contacts .flex > div {display: flex; flex-direction: row; justify-content: center; align-items: center;}
+div.contacts .flex > div a {color: color2A; margin-left: 10px;}
+div.contacts .flex > div a:hover {color: #fff;}
+div.contacts .flex > div i {color: #fff;}
+.social-links a {display: flex; justify-content: center; align-items: center; width: 35px; height: 35px; margin-left: 0 !important; border: 1px solid rgba(255,255,255,0.2);}
+.social-links a i {margin: 0}
+.social-links a i {color: #fff;}
+.social-links a:hover {border: 1px solid rgba(255,255,255,0.5);}
+/* Default Size */
+body #root {font-family: 'fontText', sans-serif; font-weight: 100; font-size: 1em;}
+h1, h2, h3, h4, h5, h6, big {font-family: 'fontHead', sans-serif; margin-bottom: 15px;}
+section h1 {font-size: 2.5em;}
+section h2 {font-size: 2em;}
+section h3 {font-size: 1.7em;}
+section h4 {font-size: 1.3em;}
+section h5 {font-size: 1.2em;}
+section h6 {font-size: 1.1em;}
+big {font-size: 1.8em;}
+section p {margin-bottom: 10px;}
+section ul:not([class]), section ol:not([class]), section table:not([class]) {margin: 15px 0;}
+/* Header */
+header {height: 50vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; align-items: center; background-color: colorFooter; background-position: center; background-size: cover;}
+header::before {position: absolute; display: block; content: ''; top: 0; right: 0; bottom: 0; left: 0; margin: auto; background: colorHead; opacity: 0.9; z-index: 0;}
+header big {font-size: 3em;}
+header p {font-size: 1.5em;}
+div.tel {display: flex; flex-direction: column;}
+/* NAV style */
+#listener {display: block; width: 100%; height: 0px;}
+nav.catana {position: absolute; display: flex; justify-content: center; align-items: center; width: 100%; background: colorBody; border-bottom: 1px solid #ddd; height: 65px; z-index: 99;}
+nav.catana.fixed {position: fixed; top: 0; left: 0; right: 0; width: 100%; box-shadow: 0 0 30px rgba(0,0,0,0.2);}
+nav.catana .flex {justify-content: space-between;}
+nav.catana .flex > a {display: inline-flex; justify-content: flex-start; align-items: center; min-width: 30px; min-height: 30px;}
+nav.catana .flex ul {display: flex; flex-direction: row;}
+nav.catana .flex ul li {position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 35px;}
+nav.catana .flex ul li ico {display: none;}
+nav.catana .flex ul li > i {display: flex; position: absolute; bottom: -5px; color: #ccc;}
+nav.catana .flex ul li a {display: inline-block; text-align: center; width: 100%; padding: 5px 10px; font-size: 1em;}
+nav.catana .flex ul li a:hover, nav.catana ul li a.active {color: color1B;}
+nav.catana .flex ul li ul li ul li a:hover, nav.catana ul li ul li ul li a.active {color: color1A;}
+nav.catana .flex ul li ul {position: absolute; top: 35px; display: flex; flex-direction: column; height: 0; overflow: hidden; padding: 0 5px; border-top: 0px solid transparent; background: #f3f3f3; box-shadow: 0 0 20px rgba(0,0,0,0.2); transition: 0.1s;}
+nav.catana .flex ul li:hover > ul {height: auto; padding: 5px; border-top: 1px solid color1B;}
+nav.catana .flex ul li ul li {border-bottom: 1px solid #ddd;}
+nav.catana .flex ul li ul li a {text-align: left;}
+nav.catana .flex ul li ul li:last-child {border-bottom: none;}
+nav.catana .flex ul li ul li i {position: absolute; height: 26px; width: 20px; top: 3px; right: 0; left: auto; bottom: 0; color: rgba(255,255,255,0.5);}
+nav.catana .flex ul li ul li ul {position: absolute; display: none; top: -3px; left: 100%; z-index: -1;}
+nav.catana .flex ul li ul li ul li {}
+nav.catana .flex ul li ul li:hover > ul {display: flex; background: color1B; border-top: 3px solid color2A; z-index: 99;}
+nav.catana .flex ul li ul li:hover > ul li {border-bottom: 1px dotted color2B;}
+nav.catana .flex ul li ul li ul li a {color: #fff;}
+nav.catana .flex ul li ul li ul li a:hover {color: color2B;}
+nav.catana #mobilenav {position: absolute; cursor: pointer; top: 0; right: 0; margin: auto; display: none; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; border: none; background: transparent; width: 50px; height: 50px; z-index: 10;}
+nav.catana #mobilenav div {width: 35px; height: 3px; background: color1A; display: block; transition: 0.2s; -webkit-transition: 0.2s; -moz-transition: 0.2s; -o-transition: 0.2s;}
+nav.catana #mobilenav div:nth-child(2) {margin: 10px 0;}
+nav.catana:not(.active) #mobilenav:hover div {width: 15px;}
+nav.active #mobilenav div:nth-child(2) {opacity: 0;}
+nav.active #mobilenav div:nth-child(1) {position: absolute; transform: rotate(45deg); top: 22px; left: 7px;}
+nav.active #mobilenav div:nth-child(3) {position: absolute; transform: rotate(-45deg); top: 22px; left: 7px;}
+nav.catana div.social {position: fixed; flex-direction: column; bottom: 150px; right: 0px; padding: 5px; border-top: 1px solid color1A; border-bottom: 1px solid color1A; background: rgba(255,255,255,0.7); transition: 0.5s;}
+nav.catana div.social e {margin-right: 0; margin-bottom: 3px;}
+nav.catana div.social e:last-child {margin-bottom: 0;}
+nav.catana:not(.fixed) div.social {opacity: 0; right: -50px;}
+/* section */
+section#err404 {height: 50vh;}
+section {flex-direction: column; padding: 50px 0;}
+section .flex {position: relative; display: flex; flex-direction: row; justify-content: flex-start; align-items: flex-start;}
+section .flex .case {position: relative;}
+section .flex .case menu {width: 100%; margin-bottom: 15px; background: #fff;}
+section .flex .case menu big {display: flex; font-size: 1.7em; flex-direction: row; justify-content: flex-start; align-items: center; background: #fff; color: color2B; border-bottom: 1px solid color2B; font-weight: 100; text-transform: uppercase; height: 70px;}
+section .flex .case menu big ico {display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; margin-right: 20px; border-right: 1px solid #eee;}
+section .flex .case menu big ico {width: 70px; border-right: 1px solid color1A;}
+section .flex .case menu ul {}
+section .flex .case menu ul li {position: relative; border-top: 1px dotted #ddd;}
+section .flex .case menu ul li:first-child {border-top: none;}
+section .flex .case menu ul li a {position: relative; display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding-left: 35px; height: 45px; font-size: 18px; color: #777;}
+section .flex .case menu ul li a span {position: absolute; display: flex; justify-content: center; align-items: center; font-size: 12px; min-width: 40px; height: 17px; text-align: center; top: 0; bottom: 0; right: 0; margin: auto; color: #999;}
+section .flex .case menu ul li a span:before {position: absolute; display: block; content: ''; width: 0; height: 19px; border-left: 1px dotted #aaa; top: 0; bottom: 0; left: 0; margin: auto;}
+section .flex .case menu ul li a:hover, section .flex .case menu ul li a.active {color: colorA;}
+section .flex .case menu ul li > ico {position: absolute; width: 35px; height: 45px; top: 0; left: 0; color: #ccc;}
+section .flex .case menu ul li > ico i {margin-top: 1px;}
+section .flex .case menu ul li ul {transition: 0.5s; max-height: 260px; overflow-y: scroll;}
+section .flex .case menu ul li ul li {background: color1B; color: #fff; border-top: 1px dotted rgba(255,255,255,0.5);}
+section .flex .case menu ul li ul li a {color: rgba(255,255,255,0.75);}
+section .flex .case menu ul li ul li a:hover {color: rgba(255,255,255,1);}
+section .flex .case menu ul li ul li a span {color: rgba(255,255,255,0.5);}
+section .flex .case menu ul li ul li a span::before {border-left-color: rgba(255,255,255,0.5);}
+section .flex .case menu ul li.open::before {position: absolute; display: block; content: ''; width: 15px; height: 15px; transform: rotate(45deg); right: 52px; top: 38px; background: #fff; z-index: 1;}
+section .flex .case menu ul li.open i {color: color1B;}
+section .flex .case menu ul li tags {position: absolute; top: 10px; right: 45px; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center;}
+section .flex .case menu ul li tags i {color: #ddd;}
+section .flex .case menu ul li tags::before {position: absolute; display: none; top: 0; left: -100px; content: ''; width: 100px; height: 100%; background:transparent;}
+section .flex .case menu ul li tags:hover::before {display: block;}
+section .flex .case menu ul li tags:hover ol {display: flex; box-shadow: 0 20px 20px -10px rgba(0,0,0,0.2), 0 0 30px rgba(0,0,0,0.2);}
+section .flex .case menu ul li tags ol {position: absolute; overflow: hidden; display: none; align-items: flex-end; justify-content: flex-end; flex-wrap: wrap; padding: 10px; right: 0; top: 30px; min-width: 200px; max-width: 400px; width: auto; border-top: 3px solid color1B; background: #fff; z-index: 10;}
+section .flex .case menu ul li tags ol::before {position: absolute; display: block; content: ''; width: 20px; height: 20px; right: 15px; top: -15px; transform: rotate(45deg); background: color1B;}
+section .flex .case menu ul li tags ol li {border-top: none;}
+section .flex .case menu ul li tags ol li a {padding: 5px 7px; height: auto; font-size: 15px;}
+section .flex .case menu ul li tags ol li a::before {content: '#'; font-weight: bold; color: color1A;}
+section .flex .case menu ul li.open ul li i {color: #fff;}
+section .flex .case menu ul li ul li tags ol {position: absolute; overflow: hidden; display: none; flex-wrap: wrap; padding: 10px; right: 0; top: 30px; min-width: 200px; max-width: 400px; width: auto; border-top: 3px solid color1A; background: #fff; z-index: 10;}
+section .flex .case menu ul li ul li tags ol::before {position: absolute; display: block; content: ''; width: 20px; height: 20px; right: 15px; top: -15px; transform: rotate(45deg); background: color1A;}
+section .flex .case menu ul li ul li tags ol li {border-top: none; background: transparent;}
+section .flex .case menu ul li ul li tags ol li a {padding: 5px 7px; font-size: 15px; color: #777;}
+section .flex .case menu ul li ul li tags ol li a::before {content: '#'; font-weight: bold;}
+section .flex .case menu ul li ul li tags ol li a:hover {color: color1B;}
+section .flex .list {width: 100%; height: auto; display: flex; flex-direction: row; flex-wrap: wrap;}
+section .flex .list box {background: #fff;}
+section .flex .list:not([cols]).margin box {margin-bottom: 10px;}
+section view {background: #fff;}
+section view, section view h1, section view text {width: 100%;}
+section par {position: relative; display: flex; justify-content: flex-start; align-items: center; width: 100%; padding: 0; margin-bottom: 20px;}
+div.text:empty,
+div.bigtext:empty {display: none;}
+div.text ul, div.bigtext ul {list-style: disc; margin: 15px 0;}
+div.text ul li, div.bigtext ul li {margin-left: 30px;}
+div.text ol, div.bigtext ol {list-style: decimal; margin: 15px 0;}
+div.text ol li, div.bigtext ol li {margin-left: 30px;}
+
+div.text ul[cols], div.text ol[cols], div.bigtext ul[cols], div.bigtext ol[cols] {list-style: none; margin: 0;}
+div.text ul[cols] li, div.text ol[cols] li, div.bigtext ul[cols] li, div.bigtext ol[cols] li {margin-left: 0;}
+
+div.text table, div.bigtext table {width: 100%;}
+div.text table tr, div.bigtext table tr {}
+div.text table tr td, div.bigtext table tr td {padding: 5px; width: 10%; height: 35px; vertical-align: middle; border: 1px solid #ddd;}
+/* forms */
+form {margin: auto;}
+form field {}
+form field:last-child {border-bottom: none;}
+form field input, form field text {display:-ms-flexbox;display:-webkit-box;display:flex;width:100%;margin-bottom:0;padding:12px;border:none;resize:none;font-size:16px;font-weight: 100; min-height: 50px; z-index: 1;}
+field text {position: relative; overflow-x:hidden; flex-direction: column; min-height: 100px; background: #fff; padding-left: 65px;}
+field text div, form field text p {display: block; position: relative;}
+field text::before {position: absolute; content: attr(prompt); color:#ccc; text-overflow:ellipsis; font-weight: 100;}
+field text:focus::before,
+field text:not(:empty)::before {margin-left:50px;opacity:0;transition:opacity 0.3s ease, margin-left 0.3s ease;}
+form field {position: relative; display: flex; flex-direction: column; justify-content: center; align-items: flex-end; padding-left: 50px;}
+form field ico {position: absolute; top: 0; left: 0; display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; z-index: 10; color: color1B;}
+form field ico:after {position: absolute; display: block; content: ''; width: 0; height: 35px; border-left: 1px dotted color1A; top: 0; bottom: 0; right: 0; margin: auto;}
+form field send{position:relative; display:block; text-align: center; padding:15px; background: color1B; color:#fff; transition:0.5s;}
+form field send:hover{background: color1B; cursor: pointer;}
+form field:last-of-type {padding-left: 0;}
+/* footer */
+footer {background-color: colorFooter; color: #eee; font-size: 0.9em;}
+footer * {color: #eee;}
+footer a:hover {color: color1A;}
+footer i {color: color1A; margin-right: 10px;}
+.social-links a {margin-right: 5px;}
+footer .flex {padding: 50px 0;}
+footer big {position: relative; display: flex; font-weight: 100; margin-bottom: 30px; text-align: left; color: color1A;}
+footer ul.contacts li {display: flex; justify-content: flex-start; align-items: center;}
+footer ul.contacts li p {margin-top: 10px; display: flex; justify-content: flex-start; align-items: center; font-size: 0.9em;}
+footer ul.contacts li p i {font-size: 1.5em; margin-right: 10px;}
+footer ul.contacts li div.social-links {display: flex; justify-content: flex-start; align-items: center;}
+/* Cols */
+[cols] {display: flex; flex-direction: row; flex-wrap: wrap;}
+[cols='1'] > * {width: 100%;}
+[cols='2'] > * {width: calc(100% / 2); width: -o-calc(100% / 2);}
+[cols='3'] > * {width: calc(100% / 3); width: -o-calc(100% / 3);}
+[cols='4'] > * {width: calc(100% / 4); width: -o-calc(100% / 4);}
+[cols='5'] > * {width: calc(100% / 5); width: -o-calc(100% / 5);}
+[cols='6'] > * {width: calc(100% / 6); width: -o-calc(100% / 6);}
+[cols='7'] > * {width: calc(100% / 7); width: -o-calc(100% / 7);}
+[cols='8'] > * {width: calc(100% / 8); width: -o-calc(100% / 8);}
+[cols] > * {position: relative;}
+/* Cols.margin */
+[cols].margin > * {margin-right: 10px; margin-bottom: 10px;}
+[cols='1'].margin > * {margin-right: 0; width: 100%;}
+[cols='2'].margin > * {width: calc(100% / 2 - 5px); width: -o-calc(100% / 2 - 5px);}
+[cols='2'].margin > *:nth-child(2n) {margin-right: 0;}
+[cols='3'].margin > * {width: calc(100% / 3 - 6.666px); width: -o-calc(100% / 3 - 6.666px);}
+[cols='3'].margin > *:nth-child(3n) {margin-right: 0;}
+[cols='4'].margin > * {width: calc(100% / 4 - 7.5px); width: -o-calc(100% / 4 - 7.5px);}
+[cols='4'].margin > *:nth-child(4n) {margin-right: 0;}
+[cols='5'].margin > * {width: calc(100% / 5 - 8px); width: -o-calc(100% / 5 - 8px);}
+[cols='5'].margin > *:nth-child(5n) {margin-right: 0;}
+[cols='6'].margin > * {width: calc(100% / 6 - 8.333px); width: -o-calc(100% / 6 - 8.333px);}
+[cols='6'].margin > *:nth-child(6n) {margin-right: 0;}
+[cols='7'].margin > * {width: calc(100% / 7 - 8.571px); width: -o-calc(100% / 7 - 8.571px);}
+[cols='7'].margin > *:nth-child(7n) {margin-right: 0;}
+[cols='8'].margin > * {width: calc(100% / 8 - 8.75px); width: -o-calc(100% / 8 - 8.75px);}
+[cols='8'].margin > *:nth-child(8n) {margin-right: 0;}
+/* Social Share */
+div.social {display: flex; justify-content: center; align-items: center; z-index: 95;}
+div.social e {display: flex; justify-content: center; align-items: center; width: 25px; height: 25px; margin-right: 5px; color: #fff; transition: 0.25s;}
+div.social e:hover {opacity: 0.6; cursor: pointer;}
+div.social e:last-child {margin-right: 0;}
+div.social e[data-id='fb'] {background: #4267b2;}
+div.social e[data-id='tw'] {background: #55acee;}
+div.social e[data-id='vk'] {background: #587ea3;}
+div.social e[data-id='gp'] {background: #dd4b39;}
+div.social e[data-id='tl'] {background: #42a3fd;}
+div.social e[data-id='ok'] {background: #ee8208;}
+div.social e i {font-size: 15px;}
+/* MEDIA SCREEN */
+@media screen and (max-width: 2560px){
+    .flex, .block {max-width: 1500px;}
+    footer .block {padding: 50px;}
+}
+@media screen and (max-width: 1920px){
+    .flex, .block {max-width: 1250px;}
+    footer .block {padding: 50px;}
+}
+@media screen and (max-width: 1440px){
+    
+}
+@media screen and (max-width: 1366px){
+    .flex, .block {max-width: 1200px;}
+    footer .block {padding: 50px;}
+}
+@media screen and (max-width: 1280px){
+    .flex, .block {max-width: 1200px;}
+    footer .block {padding: 50px;}
+}
+@media screen and (max-width: 1024px){
+    .flex, .block {max-width: 950px;}
+    section .flex {flex-direction: row;}
+    footer .col {padding: 50px 0;}
+    footer .block {padding: 25px;}
+    footer .block .col {width: 100% !important; padding: 20px;}
+    footer .col ul {display: flex; flex-direction: row; flex-wrap: wrap; width: 100%;}
+    footer .col ul li a {padding: 5px 20px 5px 0;}
+}
+@media screen and (max-width: 800px){
+    #page {padding-top: 50px;}
+    [view=''] #page {padding-top: 0;}
+    .flex, .block {max-width: 750px;}
+    section .flex {flex-direction: column;}
+    section h1 {font-size: 1.8em;}
+    section h2 {font-size: 1.6em;}
+    section h3 {font-size: 1.4em;}
+    section h4 {font-size: 1.3em;}
+    section h5 {font-size: 1.2em;}
+    section h6 {font-size: 1em;}
+    big {font-size: 1.8em;}
+    header big {font-size: 2em;}
+    header p {font-size: 1.3em;}
+    nav.catana #mobilenav {display: flex;}
+    nav.catana {overflow: hidden; justify-content: center; align-items: center; padding-top: 50px; height: 50px; width: 100vw; background: linear-gradient(180deg, #ddd, #fff); border-bottom: 1px solid #ddd; transition: 0.25s;}
+    nav.catana .flex {overflow: auto; height: calc(100vh - 50px); align-items: center;}
+    nav.catana > a, nav.catana > .flex > a {position: absolute; display: flex; justify-content: center; align-items: center; top: 0px; left: 15px; height: 50px; min-width: 50px;}
+    nav.active {height: 100vh;}
+    nav.catana .flex > ul {overflow-y: auto;}
+    nav.catana .flex ul {display: block; width: 100%; font-size: 19px;}
+    nav.catana .flex ul li {position: relative; display: flex; justify-content: center; align-items: flex-start; width: 100%;}
+    nav.catana .flex ul li a {padding: 10px 20px; justify-content: flex-start; text-align: left; width: calc(100% - 100px);}
+    nav.catana .flex ul li > i {position: absolute; color: #aaa; font-size: 30px; left: auto; bottom: auto; right: 20px; margin: unset;}
+    nav.catana .flex ul li ul {position: relative; display: flex; top: auto; padding: 0; height: 0; background: #e9e9e9; box-shadow: none;}
+    nav.catana .flex ul li:hover ul {height: auto;}
+    nav.catana div.social {bottom: 100px;}
+}
+@media screen and (max-width: 540px){
+    .flex, .block {width: 100%;}
+    div.contacts {height: auto; padding: 15px 30px;}
+    div.contacts .flex {flex-direction: column; align-items: flex-start;}
+    div.contacts .flex > div {justify-content: flex-start;}
+    div.contacts .flex > div.social-links {margin-top: 10px;}
+    [cols] {flex-direction: column;}
+    header {height: 70vh;}
+    header .block {padding: 0 10px;}
+    nav.catana #mobilenav {display: flex;}
+    section > .block, section > .flex {padding: 0;}
+    section {padding-left: 10px; padding-right: 10px;}
+    section .case:first-child {min-width: 100%; width: 100%;}
+    section .case:last-child {min-width: 100%; width: 100%;}
+    section .flex .list .cols {padding: 0;}
+    section .list {width: 100%;}
+    .col {width: 100%;}
+    shape {flex-direction: column; padding: 30px;}
+    field {width: 100%;}
+    .case div.comments form field {margin: 0;}
+    send {margin: 0; width: 100%;}
+    [cols='2'] > *, [cols='3'] > *, [cols='4'] > *, [cols='5'] > *, [cols='6'] > *, [cols='7'] > *,
+    [cols='2'].margin > *, [cols='3'].margin > *, [cols='4'].margin > *, [cols='5'].margin > *, [cols='6'].margin > *, [cols='7'] > * {width: 100%; margin-right: 0;}
+    footer .flex {padding: 50px 30px;}
+    footer .flex div {padding: 30px 0; border-bottom: 1px solid rgba(255,255,255,0.3);}
+    footer .flex div:last-child {border-bottom: none;}
+}
