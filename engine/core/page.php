@@ -1,10 +1,11 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
+
 if($content) {
     if($get['view'] && $get['tpl']['breadcrumbs']) {
         include($_SERVER['DOCUMENT_ROOT']."/engine/core/controllers/breadcrumbs.php");
@@ -17,16 +18,14 @@ if($content) {
     $record = $content['record'];
     if($record) include($_SERVER['DOCUMENT_ROOT']."/engine/core/controllers/magic-record.php");
 
-    $share = htmlspecialchars_decode($get['site']['share'], ENT_QUOTES);
-    // SecondMenu
-    include($_SERVER['DOCUMENT_ROOT']."/engine/core/functions/secondMenu.php");
-    $secondMenu = SecondMenu($get);
+    
     // Generate Page
     $cssBlocks = '<style>';
     $jsBlocks = '<script>';
     $i = 1;
     foreach ($blocks as $block) {
         $blockPath = $_SERVER['DOCUMENT_ROOT'].'/'.$get['tpl']['blocks'].'/'.$block.'/'.$block;
+        
         if($block && file_exists($blockPath.'.'.$get['tpl']['blockType'])) {
             $pagecontents = file_get_contents($blockPath.'.'.$get['tpl']['blockType']);
         
@@ -53,7 +52,6 @@ if($content) {
             else { $pagecontents = $pagecontents[0]; }
 
             $pagecontents = str_replace("@blockName", $block, $pagecontents);
-            $pagecontents = str_replace("@secondmenu", $secondMenu, $pagecontents);
             $pagecontents = str_replace("@placeholder", $get['tpl']['placeholder'], $pagecontents);
 
             foreach($page as $key => $val) {

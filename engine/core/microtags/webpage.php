@@ -1,12 +1,12 @@
 <?php
 /* © LeoCRAFT Digital, "Catana" https://catana.leocraft.digital */
-echo '<div itemscope itemtype="https://schema.org/WebSite">';
-echo '<meta itemprop="url" content="'.$get['root'].'"/>';
-echo '<meta itemprop="name" content="'.$get['site']['title'].'">';
+$microtags = '<div itemscope itemtype="https://schema.org/WebSite">';
+$microtags .= '<meta itemprop="url" content="'.$get['www'].'"/>';
+$microtags .= '<meta itemprop="name" content="'.$get['site']['title'].'">';
 
-echo '<div itemscope itemtype="https://schema.org/WebPage">';
-echo '<meta itemprop="url" content="'.$get['root'].'/'.$get['view'].'"/>';
-echo '<meta itemprop="name" content="'.$content['title'].'">';
+$microtags .= '<div itemscope itemtype="https://schema.org/WebPage">';
+$microtags .= '<meta itemprop="url" content="'.$get['www'].'/'.$get['view'].'"/>';
+$microtags .= '<meta itemprop="name" content="'.$content['title'].'">';
 
 include($_SERVER['DOCUMENT_ROOT'].'/engine/core/microtags/organization.php');
 
@@ -28,7 +28,7 @@ if($content['record']) {
         include($_SERVER['DOCUMENT_ROOT'].'/engine/core/microtags/article.php');
     }
 }
-include($_SERVER['DOCUMENT_ROOT'].'/engine/core/controllers/breadcrumbs.php');
+// include($_SERVER['DOCUMENT_ROOT'].'/engine/core/controllers/breadcrumbs.php');
 
-echo '</div>';
-echo '</div>';
+$microtags .= '</div>';
+$microtags .= '</div>';

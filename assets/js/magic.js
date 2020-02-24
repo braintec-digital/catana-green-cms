@@ -13,40 +13,42 @@ document.addEventListener('DOMContentLoaded', function(){
         document.querySelector('nav').classList.toggle("active");
     }
 
-    var shape = document.querySelectorAll('[shape]');
-    shape.forEach(function(item){
-        var prop = item.getAttribute('shape');
-        var covers = item.querySelectorAll('.cover');
-        var w = covers[0].clientWidth;
-        var shape = {
-            square: w,
-            wide:   w/16*9,
-            letter: w/4*3,
-            high:   w*1.5,
-            tower:  w*2
-        };
-        covers.forEach(function(cover){
-            cover.style.height = shape[prop] + 'px';
+    shape = function() {
+        var shape = document.querySelectorAll('[shape]');
+        shape.forEach(function(item){
+            var prop = item.getAttribute('shape');
+            var covers = item.querySelectorAll('.cover');
+            var w = covers[0].clientWidth;
+            var shape = {
+                square: w,
+                wide:   w/16*9,
+                letter: w/4*3,
+                high:   w*1.5,
+                tower:  w*2
+            };
+            covers.forEach(function(cover){
+                cover.style.height = shape[prop] + 'px';
+            });
         });
-    });
+    }
 
     window.addEventListener('scroll', function() {
         show();
-        showVisible();
+        showCover();
         var fix = document.querySelector('#listener');
         var off = fix.getBoundingClientRect();
         if(off.top <= 0) { document.querySelector('nav').classList.add('fixed'); }
         else { document.querySelector('nav').classList.remove('fixed'); }
     });
 
-    function isVisible(elem) {
+    isVisible = function(elem) {
         let coords = elem.getBoundingClientRect();
         let windowHeight = document.documentElement.clientHeight;
         let topVisible = coords.top > 0 && coords.top < windowHeight;
         let bottomVisible = coords.bottom < windowHeight && coords.bottom > 0;
         return topVisible || bottomVisible;
     }
-    function showVisible() {
+    showCover = function() {
         for(let img of document.querySelectorAll('[data-src]')) {
             let realSrc = img.dataset.src;
             if(!realSrc) continue;
@@ -57,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
     }
-    function show() {
+    show = function() {
         setTimeout(function(){
             var hide = document.querySelectorAll('.hide');
             hide.forEach(function(item){
@@ -69,8 +71,9 @@ document.addEventListener('DOMContentLoaded', function(){
         }, 200);
     }
 
+    shape();
     show();
-    showVisible();
+    showCover();
     // Smoth Scroll to #anchor
     const anchors = document.querySelectorAll('a[href*="#"]');
     for(let anchor of anchors) {

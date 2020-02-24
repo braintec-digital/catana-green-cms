@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -66,6 +66,7 @@
                 <a href="#" data-command='blockquote' help="Blockquote"><i class='mdi mdi-format-quote-open fs-3x'></i></a>
                 <a href="#" data-command='article' help="Article"><i class='mdi mdi-message-outline fs-3x'></i></a>
                 <a href="#" data-command='pre' help="Pre"><i class='mdi mdi-format-section fs-3x'></i></a>
+                <a href="#" data-command='insertHTML' data-value="code" help="Code"><i class='mdi mdi-code-tags fs-3x'></i></a>
             </div>
         </div>
 

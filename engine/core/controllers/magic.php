@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -31,15 +31,49 @@ function Magic(){
         $code = str_replace('@breadcrumbs',$bread,$code);
     }
 
+    if(stristr($code,'@search')) {
+        $search = '<div id="searchpanel" link="'.$get['search'].'"><input type="text" name="search" value="'.$get['find'].'" placeholder="поиск по сайту" autocomplete="off"><send id="gosearch"><i class="mdi mdi-magnify"></i></send></div><script async src="assets/js/search.js"></script>';
+        $code = str_replace('@search',$search,$code);
+    }
+
+    if(stristr($code,'@rootmenu')) {
+        include($_SERVER['DOCUMENT_ROOT']."/engine/core/functions/primaryMenu.php");
+        $code = str_replace('@rootmenu',primaryMenu($get),$code);
+    }
+
+    if(stristr($code,'@secondmenu')) {
+        include($_SERVER['DOCUMENT_ROOT']."/engine/core/functions/secondMenu.php");
+        $code = str_replace("@secondmenu",SecondMenu($get),$code);
+    }
+
+    if(stristr($code,'@deepmenu')) {
+        preg_match('/@deepmenu:([a-zA-Z0-9]+)./',$code,$match);
+        include($_SERVER['DOCUMENT_ROOT']."/engine/core/functions/deepMenu.php");
+        $code = preg_replace('/@deepmenu:([a-zA-Z0-9]+)./',deepMenu($match[1]),$code);
+    }
+
+    if(stristr($code,'@calendar')) {
+        include_once($_SERVER['DOCUMENT_ROOT']."/engine/widgets/calendar.php");
+        $code = str_replace('@calendar',$calendar.'<script async src="assets/js/calendar.js"></script>',$code);
+    }
+
+    if(stristr($code,'@site->microdata')) {
+        include_once($_SERVER['DOCUMENT_ROOT']."/engine/core/controllers/microtags.php");
+        $code = str_replace('@site->microdata',$microtags,$code);
+    }
+    
     if($get['type'] == 'URI') {
         include_once($_SERVER['DOCUMENT_ROOT']."/engine/core/functions/primaryMenu.php");
         $code = str_replace("@rootmenu", primaryMenu($get), $code);
     }
     
-    $code = str_replace("@socialinks", $share, $code);
+    if(stristr($code,'@share')) {
+        include_once($_SERVER['DOCUMENT_ROOT']."/engine/core/functions/share.php");
+        $code = str_replace("@share", $share, $code);
+    }
     
 // Magic Content Convertor
-    if($get['view'] == '') $isview = 'main'; else $isview = $get['view'];
+    if($get['view'] == '') $isview = 'home'; else $isview = $get['view'];
 
     if($get['multitype'] == 'jobs' || $get['multitype'] == 'news'){
         $recount = countRows("SELECT id FROM".$get['table']." WHERE (page_id=".$get['viewid'].") AND (public=1 AND del=0) AND (`fin_date`>='".$get['today']."' OR `fin_date` IS NULL OR `fin_date`='0000-00-00')");
@@ -266,28 +300,109 @@ function Magic(){
         foreach($html->find('[select]') as $item) {
             $template = $item->innertext;
             $select = $item->select;
-            $add = $item->add;
-            $item->add = null;
             $item->select = null;
-
-            include($_SERVER['DOCUMENT_ROOT']."/engine/core/controllers/sql.php");
-            
-            // First children as Item
-            $row = $item->firstChild();
             $item->innertext = '';
-            
-            if($item->id == 'more') {
+            include($_SERVER['DOCUMENT_ROOT']."/engine/core/controllers/sql.php");
+            if($item->next) {
+                $next = $item->next;
+                $item->next = null;
+                $class = $item->class;
+                $item->class = $class.' next-case';
                 $cols = $item->cols;
-                if($limits == 0 || $found == 0 || $found < $limits) {
-                    foreach($html->find('more') as $more){
-                        $more->outertext = '';
-                    }
-                } else {
-                    // for emty select
+
+                // echo 'found: '.$found.', limits: '.$limits.', next: '.$next.' get: '.$get['next'];
+                if(
+                    ($next && $limits != 0 && $limits < $found)
+                    && ($get['next'] != 'all')
+                    && ($get['next'] < $found)
+                ) {
+                    $left = $found-$limits;
+                    $button = '<a id="nextrecords" href="'.$get['view'].'/next=all" type="click" left="'.$left.'" onclick="nextRecords(); return false">@word->nextrecords<script src="assets/js/next.js"></script></a>';
+                }
+                else {
+                    $button = '';
                 }
                 $genegal = true;
-            } else {
+            }
+            elseif($item->page) {
+                $item->page = null;
+                $cpage = round($found/$limits);
+
+                if($get['pages'] > $cpage) {
+                    header("HTTP/1.1 301 Moved Permanently"); 
+                    header("Location: ".$get['www'].'/'.$get['leaf']);
+                    exit();
+                }
+
+                $button = '<ul id="pagesnav">';
+                
+                if($get['pages'] <= 4) $l = $get['view'];
+                elseif($get['pages'] == $cpage) {
+                    $le = $get['pages']-5;
+                    $l = $get['view'].'/page/'.$le;
+                }
+                elseif($get['pages'] == $cpage-1) {
+                    $le = $get['pages']-4;
+                    $l = $get['view'].'/page/'.$le;
+                }
+                else {
+                    $le = $get['pages']-3;
+                    $l = $get['view'].'/page/'.$le;
+                }
+
+                if(!$get['pages']) {
+                    $s = 1;
+                    $f = 5;
+                }
+                elseif($get['pages'] == 2) {
+                    $s = 1;
+                    $f = $get['pages']+3;
+                }
+                elseif($get['pages'] == $cpage) {
+                    $s = $get['pages']-4;
+                    $f = $get['pages'];
+                }
+                elseif($get['pages'] == $cpage-1) {
+                    $s = $get['pages']-3;
+                    $f = $get['pages']+1;
+                }
+                else {
+                    $s = $get['pages']-2;
+                    $f = $get['pages']+2;
+                }
+
+                if($get['pages'] > 4) $button .= '<li class="side"><a href="'.$get['leaf'].'"><i class="mdi mdi-chevron-double-left fs-4x"></i></a></li>';
+                if($get['pages'] > 3) $button .= '<li><a href="'.$l.'"><i class="mdi mdi-chevron-left fs-4x"></i></a></li>';
+                
+                for($i = $s; $i <= $f; $i++) {
+                    if($i == $get['pages']) {
+                        $select = ' class="now "';
+                        $href = '';
+                    }
+                    else {
+                        $select = '';
+                        $href = ' href="'.$get['leaf'].'/page/'.$i.'"';
+                    }
+                    if($i <= $cpage && $i >= 1) {
+                        if($i == 1 && !$get['pages']) $button .= '<li class="now"><a>'.$i.'</a></li>';
+                        elseif($i == 1) $button .= '<li><a href="'.$get['leaf'].'">'.$i.'</a></li>';
+                        else $button .= '<li'.$select.'><a'.$href.'>'.$i.'</a></li>';
+                    }
+                }
+
+                if($get['pages'] < $cpage) {
+                    if(!$get['pages']) $r = 6;
+                    elseif($get['pages']+3 <= $cpage) $r = $get['pages']+3;
+                    elseif($get['pages']+2 <= $cpage) $r = $get['pages']+2;
+                    else $r = $get['pages']+1;
+                    if($get['pages']+2 < $cpage) $button .= '<li><a href="'.$get['leaf'].'/page/'.$r.'"><i class="mdi mdi-chevron-right fs-4x"></i></a></li>';
+                    if($get['pages']+3 < $cpage) $button .= '<li class="side"><a href="'.$get['leaf'].'/page/'.$cpage.'"><i class="mdi mdi-chevron-double-right fs-4x"></i></a></li>';
+                }
+                $button .= '</ul>';
+            }
+            else {
                 $genegal = false;
+                $button = '';
             }
 
             if($records){
@@ -296,21 +411,29 @@ function Magic(){
                 $order = 0;
                 foreach($records as $record) {
                     if($record) {
-                        $line = $row->outertext; // convert object to sting
+                        $line = $template; // convert object to sting
                         include($_SERVER['DOCUMENT_ROOT']."/engine/core/controllers/magic-records.php");
-                        
                         $item->innertext .= $line;
-                        $item->removeAttribute('select');
                         $num++;
                         $order++;
                     }
                 }
+                $item->outertext .= $button;
             }
             else {
                 if($get['find']) {
-                    $nofound = $row->outertext;
-                    include($_SERVER['DOCUMENT_ROOT']."/engine/core/NotFound.php");
-                    $item->innertext .= $nofound;
+                    $line = $template;
+                    $record = [
+                        'date' => date('Y-m-d'),
+                        'time' => date('H:i'),
+                        'img' => '',
+                        'title' => 'No Records Found!',
+                        'descript' => 'Your search [ '.$get['find'].' ] could not find records'
+                    ];
+                    foreach($record as $key => $val) {
+                        $line = str_replace('@record->'.$key,$val,$line);
+                    }
+                    $item->innertext .= $line;
                 } else {
                     $item->innertext = '';
                 }

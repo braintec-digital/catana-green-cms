@@ -4,8 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 ini_set('error_reporting', E_ERROR);
 
-include($_SERVER['DOCUMENT_ROOT'].'/engine/config.php');
-include($_SERVER['DOCUMENT_ROOT'].'/engine/core/database/connection.php');
+include($_SERVER['DOCUMENT_ROOT'].'/_admin/config.php');
 
 if($_POST['login'] && $_POST['pass']) {
     $login = $_POST['login'];

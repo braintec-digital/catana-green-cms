@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -53,15 +53,21 @@ if($select[3] == 'date') {
     if($select[4] == 'asc') $order .= ' ASC';
     elseif($select[4] == 'desc') $order .= ' DESC';
     else $order .= ' ASC';
-    if($get['name'] == 'glow' && !$get['admin']) $order .= ', num ASC';
 }
 
 if(is_numeric($select[2])) $limits = $select[2]; else $limits = 0;
-if($select[2] == 'all') $limit = '';
-elseif($get['type'] == 'GET' && $get['more'] == 'all') $limit = '';
-elseif($get['type'] == 'GET' && $get['more']) $limit = 'LIMIT '.$get['more'];
-elseif($rows && $next) $limit = 'LIMIT '.$rows.', '.$next;
-else $limit = 'LIMIT '.$select[2];
+
+if($rows) {
+    $limit = 'LIMIT '.$rows.','.$next;
+}
+elseif($get['next']) {
+    if($get['next'] && $get['next'] == 'all') $limit = '';
+    else $limit = 'LIMIT '.$get['next'];
+}
+else {
+    if($select[2] == 'all') $limit = '';
+    else $limit = 'LIMIT '.$select[2];
+}
 
 $selecTor = [
     'where' => '',
@@ -192,12 +198,18 @@ if($get['view'] == 'afisha') {
 $selecTor = array_diff($selecTor, array(''));
 $selecTor = implode(' ',$selecTor);
 if($get['admin']) $order .= ', id DESC';
+
+$found = countRows("SELECT id FROM $table WHERE $selecTor");
+
+if($get['pages']) {
+    if($get['pages'] == 1) $limit = ' LIMIT '.$limits;
+    else $limit = ' LIMIT '.$limits*($get['pages']-1).','.$limits;
+}
+
 $sql = "SELECT $fields FROM $table WHERE $selecTor ORDER BY $order $limit";
 $records = getData($sql);
 
 // print_r($sql);
-
-$found = countRows("SELECT id FROM $table WHERE $selecTor");
 
 $selecTor = NULL;
 $select = NULL;

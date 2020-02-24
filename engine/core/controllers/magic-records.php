@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -68,7 +68,6 @@ elseif($record['url']) {
 }
 // cover
 if($record['img'] && !$record['video']) {
-    $record['img'] = $get['filepath'].$record['img'];
     $record['keyvideo'] = '';
 }
 elseif($record['video'] && !$record['img']) {
@@ -76,7 +75,6 @@ elseif($record['video'] && !$record['img']) {
     $record['keyvideo'] = '<ico><i class="mdi mdi-youtube-play fs-4x"></i></ico>';
 }
 elseif($record['video'] && $record['img']) {
-    $record['img'] = $get['filepath'].$record['img'];
     $record['keyvideo'] = '<ico><i class="mdi mdi-youtube-play fs-4x"></i></ico>';
 }
 else {

@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -20,7 +20,7 @@ function base($sql) {
 function dbArray($result){
     $res_array = array();
     $count = 0;
-    while($row = mysql_fetch_assoc($result)) {
+    while($row = mysqli_fetch_assoc($result)) {
         $res_array[$count] = $row;
         $count ++;
     }

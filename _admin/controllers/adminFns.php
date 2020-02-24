@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -91,8 +91,6 @@ function insertData($post) {
 
     $key = implode(',',$key);
     $val = implode(',',$val);
-
-    // print_r(" INSERT INTO $table ($key) VALUES ($val) "); die;
     
     $res = base(" INSERT INTO $table ($key) VALUES ($val) ");
     if(!$res) echo "ERROR!";
@@ -110,6 +108,22 @@ function updateData($post) {
         $res = base(" UPDATE $table SET $key = '$val' WHERE id='$id' ");
         if(!$res) echo "ERROR! $key";
     }
+}
+function sortData($post) {
+    $table = $post['table'];
+    $orders = $post['order'];
+    $i = 1;
+    foreach($orders as $id) {
+        $res = base(" UPDATE $table SET `num` = '$i' WHERE id='$id' ");
+        if(!$res) echo "ERROR sort $table FOR $id";
+        $i++;
+    }
+}
+function deleteData($post) {
+    $table = $post['table'];
+    $id = $post['id'];
+    $res = base(" DELETE FROM $table WHERE id='$id' ");
+    if(!$res) echo "ERROR Delete! [$table] id=$id";
 }
 
 function checkFileType($item){

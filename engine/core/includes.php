@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -16,26 +16,24 @@ $includes = [
     'backTranslit',
     'wordsLang',
     'siteData',
-    'primaryMenu',
     'simple_html_dom',
     'isMobile',
     'request',
     'content',
-    'magic',
-    'main-config'
+    'magic'
 ];
 $paths = [
-    'engine/',
-    'engine/core/',
-    'engine/core/controllers/',
-    'engine/core/functions/',
-    'engine/core/database/'
+    '/engine/',
+    '/engine/core/',
+    '/engine/core/controllers/',
+    '/engine/core/functions/',
+    '/engine/core/database/'
 ];
 
 foreach($includes as $include) {
     foreach($paths as $path) {
-        if(file_exists($path.$include.'.php')) {
-            include($path.$include.'.php');
+        if(file_exists($_SERVER['DOCUMENT_ROOT'].$path.$include.'.php')) {
+            include($_SERVER['DOCUMENT_ROOT'].$path.$include.'.php');
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -17,6 +17,7 @@ $fields = [
     'type' => ['hidden',''],
     'multitype' => ['hidden',''],
     'img' => ['hidden',''],
+    'altimg' => ['hidden',''],
     'gallery' => ['hidden',''],
 
     '1' => [

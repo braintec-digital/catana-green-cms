@@ -1,12 +1,12 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
 include($_SERVER['DOCUMENT_ROOT']."/engine/core/functions/translit.php");
-
+// print_r($_POST); die;
 if($_POST) {
     $folder = $_SERVER['DOCUMENT_ROOT'].'/'.$_POST['path'];
     

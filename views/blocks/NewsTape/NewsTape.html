@@ -1,6 +1,6 @@
 <section class="@blockName @pageName">
     <div class="block">
-        <div id="more" class="list margin" cols="3" shape="img" select="records:thispage:all:num:asc">
+        <div class="list margin" cols="3" shape="img" select="records:thispage:all:num:asc">
             <box class="hide show-in">
                 <a href="@record->url">
                     <date>@record->date</date>
@@ -8,11 +8,10 @@
                         <img data-src="@record->img" src="@placeholder" alt="@record->title">
                     </div>
                     <p>@record->title</p>
-                    <span>@decord->descript</span>
+                    <span>@record->descript</span>
                 </a>
             </box>
         </div>
-        <more not="main" type="click" next="12" max="">@word->next</more>
     </div>
 </section>
 @blade
@@ -26,7 +25,7 @@
                 <h1>@record->title</h1>
                 @record->short
             </div>
-            @socialinks
+            @share
         </div>
         <ul class="gallery" cols="6" shape="square" array="records:gallery">
             <li><div class="cover" style="background-image: url(@arr->item)"></div></li>

@@ -2,8 +2,7 @@
 /* © LeoCRAFT Digital, "Catana" https://catana.leocraft.digital */
 session_start();
 $admin = $_SESSION['admin'];
-include($_SERVER['DOCUMENT_ROOT'].'/engine/config.php');
-include($_SERVER['DOCUMENT_ROOT'].'/engine/core/database/connection.php');
+include($_SERVER['DOCUMENT_ROOT'].'/_admin/config.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_admin/controllers/adminFns.php');
 $table = 'pages';
 if($_POST['edit']['id']) { $data = editData("SELECT * FROM $table WHERE id=".$_POST['edit']['id']); }

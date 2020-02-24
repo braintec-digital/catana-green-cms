@@ -145,7 +145,7 @@ div.tel {display: flex; flex-direction: column;}
 #listener {display: block; width: 100%; height: 0px;}
 nav.catana {position: absolute; display: flex; justify-content: center; align-items: center; width: 100%; background: colorBody; border-bottom: 1px solid #ddd; height: 65px; z-index: 99;}
 nav.catana.fixed {position: fixed; top: 0; left: 0; right: 0; width: 100%; box-shadow: 0 0 30px rgba(0,0,0,0.2);}
-nav.catana .flex {justify-content: space-between;}
+nav.catana .flex {justify-content: space-between; align-items: center;}
 nav.catana .flex > a {display: inline-flex; justify-content: flex-start; align-items: center; min-width: 30px; min-height: 30px;}
 nav.catana .flex ul {display: flex; flex-direction: row;}
 nav.catana .flex ul li {position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; min-height: 35px;}
@@ -173,10 +173,48 @@ nav.catana:not(.active) #mobilenav:hover div {width: 15px;}
 nav.active #mobilenav div:nth-child(2) {opacity: 0;}
 nav.active #mobilenav div:nth-child(1) {position: absolute; transform: rotate(45deg); top: 22px; left: 7px;}
 nav.active #mobilenav div:nth-child(3) {position: absolute; transform: rotate(-45deg); top: 22px; left: 7px;}
-nav.catana div.social {position: fixed; flex-direction: column; bottom: 150px; right: 0px; padding: 5px; border-top: 1px solid color1A; border-bottom: 1px solid color1A; background: rgba(255,255,255,0.7); transition: 0.5s;}
-nav.catana div.social e {margin-right: 0; margin-bottom: 3px;}
-nav.catana div.social e:last-child {margin-bottom: 0;}
-nav.catana:not(.fixed) div.social {opacity: 0; right: -50px;}
+nav.catana div.share {position: fixed; flex-direction: column; bottom: 150px; right: 0px; padding: 5px; border-top: 1px solid color1A; border-bottom: 1px solid color1A; background: rgba(255,255,255,0.7); transition: 0.5s;}
+nav.catana div.share a {margin-right: 0; margin-bottom: 3px;}
+nav.catana div.share a:last-child {margin-bottom: 0;}
+nav.catana:not(.fixed) div.share {opacity: 0; right: -50px;}
+/* search */
+div#searchpanel {height: 40px; width: 100%; max-width: 250px; display: flex; justify-content: flex-start; align-items: center; border: 1px solid #eee; background: #fff;}
+div#searchpanel input {display: flex; justify-content: flex-start; align-items: center;  height: 100%; width: calc(100% - 35px); border: none; padding: 0 10px; font-size: 0.8em; color: #777;}
+div#searchpanel send {position: relative; display: flex; justify-content: center; align-items: center; width: 40px; height: 40px;}
+div#searchpanel send::before {position: absolute; left: 0; content: ''; width: 0; height: 29px; border-left: 1px solid #ddd;}
+div#searchpanel send i {font-size: 21px;}
+div#searchpanel send:hover {cursor: pointer;}
+div#searchpanel send:hover i {color: color1A;}
+/* next */
+#nextrecords {display: inline-flex; justify-content: flex-start; align-items: center; margin-top: 10px; height: 40px; padding-left: 10px; background: color1B; color: #eee;}
+#nextrecords::after {content: attr(left); display: inline-flex; justify-content: center; align-items: center; margin-left: 10px; min-width: 35px; border-left: 1px dotted #eee; font-size: 13px; padding-right: 5px;}
+/* pages */
+ul#pagesnav {display: flex; justify-content: flex-start; align-items: center;}
+ul#pagesnav li {margin-right: 5px;}
+ul#pagesnav li a {display: flex; justify-content: center; align-items: center; width: 35px; height: 35px; font-size: 15px; color: #777; background: #fff; border: 1px solid #ddd;}
+ul#pagesnav li.now a {background: color1B; border-color: color1B; color: #eee;}
+ul#pagesnav li.side a {width: auto; padding: 0 10px;}
+ul#pagesnav li a:hover {cursor: default;}
+ul#pagesnav li a[href]:hover {cursor: pointer; border-color: color1B;}
+ul#pagesnav li:last-child {margin-right: 0;}
+/* calendar */
+div.calendar {user-select: none; width: 100%;}
+div.calendar mont {display: flex; justify-content: space-between; padding: 5px 10px 10px 10px;}
+div.calendar mont a {color: #333;}
+div.calendar mont a:hover {color: color1A;}
+div.calendar mont p {color: color1A; text-transform: uppercase; margin: 0;}
+div.calendar table {margin: 0;}
+div.calendar table thead tr {background: #fff;}
+div.calendar table thead td {border-bottom: 1px solid color1A; padding: 5px 10px !important; text-align: right; border: 1px solid #eee;}
+div.calendar table tbody td {padding: 0 !important; text-align: right;}
+div.calendar table tbody td a {display: block; padding: 5px 10px; color: unset; font-size: 15px;}
+div.calendar table td.weekend,
+div.calendar table tbody td.weekend a {color: color1A;}
+div.calendar table tbody td {height: auto !important;}
+div.calendar table tbody td.now a {background: color1A; color: #fff;}
+div.calendar table tbody td:not(:empty) a:hover {cursor: pointer; background: color2B; color: #fff;}
+div.calendar table tbody td.now a:hover {cursor: pointer; background: color1A; color: #fff;}
+div.calendar table tbody td.select a {background: #fff; box-shadow: inset 0 0 0 1px color1A;}
 /* section */
 section#err404 {height: 50vh;}
 section {flex-direction: column; padding: 50px 0;}
@@ -295,18 +333,19 @@ footer ul.contacts li div.social-links {display: flex; justify-content: flex-sta
 [cols='7'].margin > *:nth-child(7n) {margin-right: 0;}
 [cols='8'].margin > * {width: calc(100% / 8 - 8.75px); width: -o-calc(100% / 8 - 8.75px);}
 [cols='8'].margin > *:nth-child(8n) {margin-right: 0;}
-/* Social Share */
-div.social {display: flex; justify-content: center; align-items: center; z-index: 95;}
-div.social e {display: flex; justify-content: center; align-items: center; width: 25px; height: 25px; margin-right: 5px; color: #fff; transition: 0.25s;}
-div.social e:hover {opacity: 0.6; cursor: pointer;}
-div.social e:last-child {margin-right: 0;}
-div.social e[data-id='fb'] {background: #4267b2;}
-div.social e[data-id='tw'] {background: #55acee;}
-div.social e[data-id='vk'] {background: #587ea3;}
-div.social e[data-id='gp'] {background: #dd4b39;}
-div.social e[data-id='tl'] {background: #42a3fd;}
-div.social e[data-id='ok'] {background: #ee8208;}
-div.social e i {font-size: 15px;}
+/* Share */
+div.share {display: flex; justify-content: center; align-items: center; z-index: 95;}
+div.share a {display: flex; justify-content: center; align-items: center; width: 25px; height: 25px; margin-right: 5px; color: #fff; transition: 0.25s;}
+div.share a:hover {opacity: 0.6; cursor: pointer;}
+div.share a:last-child {margin-right: 0;}
+div.share a[data-id='fb'] {background: #4267b2;}
+div.share a[data-id='tw'] {background: #55acee;}
+div.share a[data-id='vk'] {background: #587ea3;}
+div.share a[data-id='te'] {background: #42a3fd;}
+div.share a[data-id='in'] {background: #0077b5;}
+div.share a[data-id='pi'] {background: #e60023;}
+div.share a[data-id='vr'] {background: #665cac;}
+div.share a i {font-size: 15px;}
 /* MEDIA SCREEN */
 @media screen and (max-width: 2560px){
     .flex, .block {max-width: 1500px;}
@@ -362,7 +401,7 @@ div.social e i {font-size: 15px;}
     nav.catana .flex ul li > i {position: absolute; color: #aaa; font-size: 30px; left: auto; bottom: auto; right: 20px; margin: unset;}
     nav.catana .flex ul li ul {position: relative; display: flex; top: auto; padding: 0; height: 0; background: #e9e9e9; box-shadow: none;}
     nav.catana .flex ul li:hover ul {height: auto;}
-    nav.catana div.social {bottom: 100px;}
+    nav.catana div.share {bottom: 100px;}
 }
 @media screen and (max-width: 540px){
     .flex, .block {width: 100%;}

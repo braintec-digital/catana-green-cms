@@ -1,20 +1,17 @@
 <?php
 /* © LeoCRAFT Digital, "Catana" https://catana.leocraft.digital */
-echo '<div itemscope itemtype="https://schema.org/Organization">';
-echo '<meta itemprop="name" content="'.$get['site']['title'].'">';
-echo '<meta itemprop="logo" content="'.$get['root'].'/userfiles/">';
-echo '<meta itemprop="image" content="userfiles/ogImg.png">';
-echo '<meta itemprop="url" content="'.$get['root'].'">';
-echo '<meta itemprop="sameAs" href="https:'.$get['site']['social'][0].'"/>';
-echo '<meta itemprop="sameAs" href="https:'.$get['site']['social'][1].'"/>';
-echo '<meta itemprop="sameAs" href="https:'.$get['site']['social'][2].'"/>';
-echo '<div itemprop="location" itemscope itemtype="https://schema.org/Place">';
-echo '<meta itemprop="telephone" content="'.$get['site']['tel'][0].'"/>';
-echo '<meta itemprop="telephone" content="'.$get['site']['tel'][1].'"/>';
-echo '<meta itemprop="telephone" content="'.$get['site']['tel'][2].'"/>';
-echo '<span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">';
-echo '<meta itemprop="streetAddress" content="'.$get['site']['addr'].'">';
-echo '<meta itemprop="postalCode" content="'.$get['site']['zip'].'">';
-echo '<meta itemprop="addressLocality" content="'.$get['site']['city'].'">';
-echo '<meta itemprop="email" content="'.$get['site']['mail'][0].'">';
-echo '</span></div></div>';
+$microtags .= '<div itemscope itemtype="https://schema.org/Organization">
+<meta itemprop="name" content="'.$get['site']['title'].'">
+<meta itemprop="logo" content="'.$get['www'].'/'.$get['tpl']['logo'].'">
+<meta itemprop="image" content="'.$get['www'].'/'.$get['tpl']['img'].'">
+<meta itemprop="url" content="'.$get['www'].'">
+<div itemprop="location" itemscope itemtype="https://schema.org/Place">
+<meta itemprop="telephone" content="'.$get['site']['tel'][0].'"/>
+<meta itemprop="telephone" content="'.$get['site']['tel'][1].'"/>
+<meta itemprop="telephone" content="'.$get['site']['tel'][2].'"/>
+<span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+<meta itemprop="streetAddress" content="'.$get['site']['addr'].'">
+<meta itemprop="postalCode" content="'.$get['site']['zip'].'">
+<meta itemprop="addressLocality" content="'.$get['site']['city'].'">
+<meta itemprop="email" content="'.$get['site']['mail'][0].'">
+</span></div></div>';

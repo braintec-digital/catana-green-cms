@@ -21,11 +21,17 @@ switch ($get['view']) {
     case 'about':
         $blocks = ['PageContent','CallBack'];
     break;
-    case 'docs':
-        $blocks = ['Docs','CallBack'];
+    case 'catalog':
+        $blocks = ['PageContent','ShopCat','CallBack'];
     break;
     case 'news':
         $blocks = ['PageContent','NewsTape','CallBack'];
+    break;
+    case 'gallery':
+        $blocks = ['PageContent','Gallery','CallBack'];
+    break;
+    case 'services':
+        $blocks = ['PageContent','Services','CallBack'];
     break;
     case 'contact':
         $blocks = ['ContactsOne','CallBack'];

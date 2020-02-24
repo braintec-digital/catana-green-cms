@@ -22,7 +22,7 @@
 .blockName .block ul.gallery {display: flex; justify-content: flex-start; align-items: center; width: 100%; border-top: 1px solid #ddd;}
 .blockName .block ul.gallery li {}
 .blockName .block div.bigtext {padding: 30px; background: #fff; border-top: 1px solid #ddd;}
-.blockName div.social {position: absolute; bottom: 25px; right: 25px;}
+.blockName div.share {position: absolute; bottom: 25px; right: 25px;}
 
 @media screen and (max-width: 800px){
     .blockName .block .case {flex-direction: column;}

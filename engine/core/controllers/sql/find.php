@@ -32,105 +32,79 @@ function findPrice($find) {
     return $pricelike;
 }
 
-if($get['multitype'] == 'pros') {
-    $searchfields = ['title','company','experience','keywords','tags'];
+$searchfields = ['title','descript','keywords','tags'];
 
-    if(stristr($get['find'], ' ')) { // word AND word
-        $string = explode(' ', $get['find']);
-        foreach($searchfields as $field){
-            foreach($string as $word){
-                if(strlen($word) > 3) $like[] = $field." LIKE '%".trim($word)."%'";
-            }
-            if($field == 'experience' || $field == 'keywords') $set[] = "(".implode(" OR ", $like).")";
-            else $set[] = "(".implode(" AND ", $like).")";
-            $like = null;
-        }
-        $multisearch = implode(" OR ", $set);
-        $select['find'] = "( ".$multisearch." ) AND";
-    }
-    else {
-        foreach($searchfields as $field){
-            $like[] = $field." LIKE '%".$get['find']."%'";
-        }
-        $like = implode(' OR ',$like);
-        $select['find'] = "(".$like.") AND";
-    }
-}
-else {
-    $searchfields = ['title','keywords','tags'];
-
-    if($get['find'][0] == '/') {
-        $get['find'] = str_replace('/','',$get['find']);
-        if(stristr($get['find'], '&')) {
-            $finds = explode('&',$get['find']);
-            
-            foreach($finds as $find) {
-                if(stristr($find, '[price')) { // [price<34.99] , [price:34.99-199.00] , [price>44.00]
-                    $and[] = "(".findPrice($find).")";
-                }
-                else {
-                    if(stristr($find, '+')) {
-                        $s = explode('+',$find);
-                        foreach($searchfields as $field) {
-                            foreach($s as $w) {
-                                $like[] = $field." LIKE '%".trim($w)."%'";
-                            }
-                            $or[] = "(".implode(' OR ',$like).")";
-                            $like = null;
-                        }
-                        $and[] = "(".implode(' OR ',$or).")";
-                        $or = null;
-                    }
-                    else {
-                        foreach($searchfields as $field) {
-                            $like[] = $field." LIKE '%".trim($find)."%'";
-                        }
-                        $and[] = "(".implode(' OR ',$like).")";
-                        $like = null;
-                    }
-                }        
-            }
-        }
-        else {
-            if(stristr($get['find'], '+')) {
-                $s = explode('+',$get['find']);
-                foreach($searchfields as $field) {
-                    foreach($s as $w) {
-                        $like[] = $field." LIKE '%".trim($w)."%'";
-                    }
-                    $or[] = "(".implode(' OR ',$like).")";
-                    $like = null;
-                }
-                $and[] = "(".implode(' OR ',$or).")";
-                $or = null;
+if($get['find'][0] == '/') {
+    $get['find'] = str_replace('/','',$get['find']);
+    if(stristr($get['find'], '&')) {
+        $finds = explode('&',$get['find']);
+        
+        foreach($finds as $find) {
+            if(stristr($find, '[price')) { // [price<34.99] , [price:34.99-199.00] , [price>44.00]
+                $and[] = "(".findPrice($find).")";
             }
             else {
-                if(stristr($get['find'], '[price')) { // [price<34.99] , [price:34.99-199.00] , [price>44.00]
-                    $find = trim($get['find']);
-                    $and[] = findPrice($find);
+                if(stristr($find, '+')) {
+                    $s = explode('+',$find);
+                    foreach($searchfields as $field) {
+                        foreach($s as $w) {
+                            $like[] = $field." LIKE '%".trim($w)."%'";
+                        }
+                        $or[] = "(".implode(' OR ',$like).")";
+                        $like = null;
+                    }
+                    $and[] = "(".implode(' OR ',$or).")";
+                    $or = null;
                 }
                 else {
                     foreach($searchfields as $field) {
-                        $like[] = $field." LIKE '%".trim($get['find'])."%'";
+                        $like[] = $field." LIKE '%".trim($find)."%'";
                     }
                     $and[] = "(".implode(' OR ',$like).")";
+                    $like = null;
                 }
-                $like = null;
-            }
+            }        
         }
-        $select['find'] = "(".implode(" AND ", $and).") AND";
     }
     else {
-        $temp = str_replace('amp;','',str_replace('&','_',$get['find']));
-        foreach($searchfields as $field) {
-            $like[] = $field." LIKE '%".trim($temp)."%'";
+        if(stristr($get['find'], '+')) {
+            $s = explode('+',$get['find']);
+            foreach($searchfields as $field) {
+                foreach($s as $w) {
+                    $like[] = $field." LIKE '%".trim($w)."%'";
+                }
+                $or[] = "(".implode(' OR ',$like).")";
+                $like = null;
+            }
+            $and[] = "(".implode(' OR ',$or).")";
+            $or = null;
         }
-        $and[] = "(".implode(' OR ',$like).")";
-        $select['find'] = "(".implode(" AND ", $and).") AND";
+        else {
+            if(stristr($get['find'], '[price')) { // [price<34.99] , [price:34.99-199.00] , [price>44.00]
+                $find = trim($get['find']);
+                $and[] = findPrice($find);
+            }
+            else {
+                foreach($searchfields as $field) {
+                    $like[] = $field." LIKE '%".trim($get['find'])."%'";
+                }
+                $and[] = "(".implode(' OR ',$like).")";
+            }
+            $like = null;
+        }
     }
-    
-    $limit = 'LIMIT 50';
-    $limits = 50;
+    $selecTor['find'] = "(".implode(" AND ", $and).") AND";
 }
-// wizard($select['find']);
+else {
+    $temp = str_replace('amp;','',str_replace('&','_',$get['find']));
+    foreach($searchfields as $field) {
+        $like[] = $field." LIKE '%".trim($temp)."%'";
+    }
+    $and[] = "(".implode(' OR ',$like).")";
+    $selecTor['find'] = "(".implode(" AND ", $and).") AND";
+}
+
+$limit = 'LIMIT 50';
+$limits = 50;
+
 $foundSearch = '<i class="mdi mdi-magnify fs-3x"></i>'.mb_convert_case($get['find'], MB_CASE_TITLE, "UTF-8");

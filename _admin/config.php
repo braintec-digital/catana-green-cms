@@ -1,12 +1,8 @@
 <?php
 /* © LeoCRAFT Digital, "Catana" https://catana.leocraft.digital */
-// $paths = [
-//     'engine/',
-//     'engine/core/',
-//     'engine/core/controllers/',
-//     'engine/core/functions/',
-//     'engine/core/database/',
-//     '_admin',
-//     '_admin/samples/',
-//     '_admin/toolbars/',
-// ];
+include($_SERVER['DOCUMENT_ROOT'].'/engine/config.php');
+include($_SERVER['DOCUMENT_ROOT'].'/engine/core/database/connection.php');
+
+$adminpath = [
+    'global' => $_SERVER['DOCUMENT_ROOT'].'/_admin'
+];

@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -45,3 +45,9 @@ if($redirects) {
 if($_SERVER['HTTPS']) $serv = 'https://';
 else $serv = 'http://';
 $base = $_SERVER['HTTP_HOST'];
+
+$get['folder'] = $base;
+$get['file'] = '_root/'.$base;
+$get['filepath'] = 'userfiles/';
+$get['userpath'] = 'get_img=';
+$get['realpath'] = '_root/'.$base.'/userfiles';

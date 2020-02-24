@@ -1,38 +1,38 @@
-<section class="@blockName @pageName">
+<section class="@blockName @page">
 	<div class='flex'>
 		<div class="case left">
 			<include file="views/blocks/SearchRecords/SearchRecords.php" view="" login="" on="1"></include>
 			<menu>
-				<big><ico><i class='mdi mdi-menu fs-6x'></i></ico>@word-partscat</big>
-				<ul>@secondMenu</ul>
+				<big><ico><i class='mdi mdi-menu fs-6x'></i></ico>@word->partscat</big>
+				<ul>@secondmenu</ul>
 			</menu>
 		</div>
 		<div class="case right">
-			<ul id="more" class="list margin" cols="3" shape="square" datasql="records:page_id=3:num:nolimit:asc">
+			<ul id="more" class="list margin" cols="3" shape="square" datasql="records:page_id=3:all:num:asc">
 				<li>
-					<a href="@_url">
-						<div class="cover" style="background-image: url(@_img)">
-							<c>@_param1</c>
+					<a href="@record->url">
+						<div class="cover" style="background-image: url(@record->img)">
+							<c>@record->param1</c>
 							<i class="mdi mdi-dots-horizontal fs-5x"></i>
 						</div>
-						<p>@_title</p>
+						<p>@record->title</p>
 					</a>
 					<div class="line">
 						<span>@_instock</span>
-						<p><i>$</i>@_price @_discount</p>
-						@_cartype
+						<p><i>$</i>@record->price @record->discount</p>
+						@record->cartype
 					</div>
 				</li>
 			</ul>
-			<more type="click" next="12" max="">@word-next</more>
+			<more type="click" next="12" max="">@word->next</more>
 			<div>
-				<h1>@page_title</h1>
-				<div class="text">@page_text</div>
+				<h1>@page->title</h1>
+				<div class="text">@page->text</div>
 			</div>
 		</div>
 	</div>
 </section>
-*\cut-block\*
+@blade
 <section class="@blockName @pageName">
 	<flex class='shop'>
 		<case class='view'>

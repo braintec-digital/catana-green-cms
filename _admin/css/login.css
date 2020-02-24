@@ -6,9 +6,10 @@
 #login {position: fixed; overflow: hidden; font-size: 19px; font-family: 'Cuprum', sans-serif; width: 300px; height: 400px; background: #f5f5f5; color: #333; left: 0; right: 0; bottom: 0; top: 0; margin: auto; box-shadow: 0 0 50px rgba(0,0,0,0.3), 0 0 0 1500px rgba(240,240,240,0.2); z-index: 999999;}
 #login.wrong {animation: wrong 0.5s;}
 #login p {padding: 15px 20px; font-size: 25px; margin: 0; background: #01ca7a; color: #f5f5f5; text-align: center; box-shadow: 0 10px 20px -10px rgba(0,0,0,0.3);}
+#login p span {font-size: 13px; margin-left: 10px;}
 #login div {display: flex; justify-content: center; align-items: center; height: calc(100% - 105px);}
 #login a {display: flex; justify-content: flex-start; align-items: center; height: 50px; padding: 0 20px; color: #aaa; font-size: 15px; text-align: center;}
-#login a:hover {cursor: pointer; color: #00955a;}
+#login a:hover {cursor: pointer; color: #01ca7a;}
 #login form {display: flex; flex-direction: column; padding: 20px; width: 100%;}
 #login form input {display: flex; align-items: center; justify-content: flex-start; height: 45px; width: 100%; padding: 0 15px; margin-bottom: 5px; font-size: 15px; border: 1px solid #ddd; border-left: 1px solid #01ca7a; box-sizing: border-box;}
 #login form #enteradmin {display: flex; justify-content: center; align-items: center; height: 45px; width: 100px; text-align: center; background: #aaa; color: #eee;}

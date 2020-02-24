@@ -24,7 +24,7 @@
 * Third-party frameworks are also connected to the admin panel: jquery.3.3.1, jquery-ui.
 *
 * Enjoy Your Development!
-* Sincerely, Dmytro Cherepanov.
+* Sincerely, Dmitry Brain (D.A.Cherepanov).
 *
 * Facebook: https://www.facebook.com/treemindlc
 * GitHub: https://github.com/leocraftdigital
@@ -32,7 +32,7 @@
 * Licensed under The MIT License
 * Redistributions of files must retain the above copyright notice.
 *
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 * @package PlaceLocalInclude

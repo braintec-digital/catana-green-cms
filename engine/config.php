@@ -27,6 +27,8 @@ $get['tpl'] = [
     // Images
     'favicon' => 'userfiles/ruleztech-icon.png',
     'appicon' => 'userfiles/ruleztech-icon.png',
+    'logo' => '',
+    'img' => '',
     'placeholder' => 'assets/img/placeholder.svg',
     // Colors
     'colors' => [

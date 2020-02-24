@@ -1,16 +1,52 @@
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
+
+function newSort() {
+    $('.sorting').sortable({
+        placeholder: 'placeholder',
+        items: "li:not(.unsortable)",
+        containment: 'parent',
+        update: function() {
+            sortRecords($(this));
+        }
+    });
+}
+newSort();
+
+function sortRecords(list) {
+    var data = {};
+    data['table'] = list.attr('table');
+    data['order'] = list.sortable("toArray");
+    if(data['table'] == 'pages' || data['table'] == 'records') {
+        $('#admin dialog').load('_admin/controllers/save.data.php',{data});
+    }
+    else {
+        galleryCreate();
+    }
+}
+
+function saveData(form) {
+    var fields = form.serializeArray();
+    var data = {};
+    $.map(fields, function(n, i) { data[n['name']] = n['value']; });
+    $(form).find('div[name]').each(function(){
+        if($(this).parents('.slipwi').is('.html')) data[$(this).attr('name')] = $(this).text();
+        else data[$(this).attr('name')] = $(this).html();
+    });
+    return data;
+}
+
 $(document).on('click','#admin ul.panel li',function(){
     $('#admin ul.panel li').removeClass('active');
     $(this).addClass('active');
     $('#admin ul.listing, #admin div.edit').empty();
     if($(this).is('[file]')) {
         var file = $(this).attr('file');
-        $('#admin ul.listing').load('_admin/panel/'+file+'.php');
+        $('#admin ul.listing').attr('table',file).load('_admin/panel/'+file+'.php');
     }
     if($(this).is('[edit]')) {
         var file = $(this).attr('edit');
@@ -21,18 +57,25 @@ $(document).on('click','#admin ul.panel li',function(){
 $(document).on('click','#admin [confirm=true]',function(){
     var action = $(this).attr('action');
     setTimeout(() => {
-        $('#admin dialog').append('<div class="alert" action="'+action+'"><a id="abort">cancel</a><a id="confirm">exit</a></div>'); 
+        $('#admin dialog').append('<div class="alert" action="'+action+'"><a id="abort">no</a><a id="confirm">yes</a></div>'); 
     }, 50);
 });
 
 $(document).on('click','#admin dialog .alert a',function(){
     var action = $(this).parent().attr('action');
-    if($(this).is('#confirm')) {
-        $('#admin dialog').load('_admin/controllers/action.php',{action});
+    if(action == 'exit-admin') {
+        if($(this).is('#confirm')) {
+            $('#admin dialog').load('_admin/controllers/action.php',{action});
+        }
     }
-    if($(this).is('#abort')) {
-        $('#admin dialog').empty();
+    if(action == 'delete') {
+        if($(this).is('#confirm')) {
+            $('#admin dialog').load('_admin/controllers/save.data.php',{data},function(){
+                $(elem).detach();
+            });
+        }
     }
+    $('#admin dialog').empty();
 });
 
 $(document).on('click','#admin ul.panel div.close-panel',function(){
@@ -69,37 +112,94 @@ $(document).on('click','#admin #edit',function(){
     edit['record_id'] = $(this).parents('[id]').attr('id');
     $('#admin div.edit').load('_admin/edit/'+edit['file']+'.php',{edit});
 });
-
-saveData = function(form) {
-    var fields = form.serializeArray();
+$(document).on('click','#admin #public',function(){
     var data = {};
-    $.map(fields, function(n, i) { data[n['name']] = n['value']; });
-    $(form).find('div[name]').each(function(){
-        if($(this).parents('.slipwi').is('.html')) data[$(this).attr('name')] = $(this).text();
-        else data[$(this).attr('name')] = $(this).html();
-    });
-    return data;
-}
+    data['table'] = $(this).closest('ul').attr('table');
+    data['id'] = $(this).parents('[id]').attr('id');
+
+    var public = $(this).parents('[id]').is('.off');
+    if(public) {
+        $(this).find('i').removeClass('mdi-eye-off').addClass('mdi-eye-outline');
+        $(this).parents('[id]').removeClass('off');
+        data['public'] = '1';
+    }
+    if(!public) {
+        $(this).find('i').removeClass('mdi-eye-outline').addClass('mdi-eye-off');
+        $(this).parents('[id]').addClass('off');
+        data['public'] = '0';
+    }
+    $('#admin dialog').load('_admin/controllers/save.data.php',{data});
+});
+
+$(document).on('click','#admin #undel',function(){
+    var data = {};
+    data['table'] = $(this).closest('ul').attr('table');
+    data['id'] = $(this).parents('[id]').attr('id');
+    data['del'] = '0';
+    $('#admin dialog').load('_admin/controllers/save.data.php',{data});
+    $(this).parents('li').detach();
+});
+
+$(document).on('click','#admin #remove',function(){
+    var data = {};
+    data['remove'] = 'data';
+    data['table'] = $(this).closest('ul').attr('table');
+    data['id'] = $(this).parents('[id]').attr('id');
+    $('#admin dialog').load('_admin/controllers/save.data.php',{data});
+    $(this).parents('li').detach();
+});
+
+$(document).on('click','#admin ul.listing-records #del',function(){
+    data = {};
+    data['table'] = $(this).closest('ul.listing-records').attr('table');
+    data['id'] = $(this).parents('[id]').attr('id');
+    data['del'] = '1';
+    elem = $(this).parents('li');
+});
 
 $(document).on('click','#admin .parents-menu li span',function(){
     var table = $(this).closest('[table]').attr('table');
+    var list = $(this).closest('[table]').attr('list');
     $('#admin .parents-menu > div > span').text($(this).text());
-    if($(this).parents('[view]')) {
-        var view = $(this).parents('[view]').attr('view');
+    
+    if(list) {
+        var list = {};
+        list['view'] = $(this).parents('.parents-menu').attr('view');
+        list['page'] = $(this).parents('[page]').attr('page');
+        list['note'] = $(this).parents('[note]').attr('note');
+        if(!list['page']) list['page'] = 0;
+        if(!list['note']) list['note'] = 0;
+        $('#admin content').attr('page_id',list['page']);
+        if(page) $('#admin content').attr('note_id',list['note']);
+        $('#admin content').load('_admin/list/list.records.php',{list});
     }
-    if($(this).parent('[page]')) {
-        var view = $(this).parents('[view]').attr('view');
-        var page = $(this).parents('[page]').attr('page');
-    }
-    if(table == 'pages') {
-        if(page) $('.edit form [name=parent_id]').val(page);
-        else $('.edit form [name=parent_id]').val(view);
-    }
-    if(table == 'records') {
-        $('.edit form [name=page_id]').val(view);
-        if(page) $('.edit form [name=cat_id]').val(page);
+    else {
+        if(table == 'pages') {
+            var parent = $(this).parents('[parent]').attr('parent');
+            $('.edit form [name=parent_id]').val(parent);
+        }
+        if(table == 'records') {
+            var view = $(this).parents('[view]').attr('view');
+            var page = $(this).parents('[page]').attr('page');
+            var note = $(this).parents('[note]').attr('note');
+
+            $('.edit form [name=view_id]').val(view);
+            if(page) $('.edit form [name=page_id]').val(page);
+            else $('.edit form [name=page_id]').val(0);
+            if(note) $('.edit form [name=note_id]').val(note);
+            else $('.edit form [name=note_id]').val(0);
+        }
     }
 });
+$(document).on('click','#admin .parents-menu li.service i',function(){
+    var list = {};
+    list['type'] = $(this).attr('type');
+    list['view'] = $('#admin content').attr('view_id');
+    list['page'] = $('#admin content').attr('page_id');
+    list['note'] = $('#admin content').attr('note_id');
+    $('#admin content').load('_admin/list/list.records.php',{list});
+});
+
 
 $(document).on('click','#admin .toolbar li',function(e){
     var act = $(this).attr('data-action');
@@ -145,6 +245,18 @@ $(document).on('click','#admin .toolbar li',function(e){
             }
         break;
 
+        case('comment_set'):
+            var public = $(this).attr('data-status');
+            if(public == '1') {
+                $(this).attr('data-status','0').find('i').removeClass('mdi-message-bulleted').addClass('mdi-message-bulleted-off');
+                $('#admin form [name=comment_set]').val('0');
+            }
+            if(public == '0') {
+                $(this).attr('data-status','1').find('i').removeClass('mdi-message-bulleted-off').addClass('mdi-message-bulleted');
+                $('#admin form [name=comment_set]').val('1');
+            }
+        break;
+
         case('multitype'):
             $(this).find('li').removeAttr('class');
             $(e.target).addClass('select');
@@ -164,12 +276,24 @@ $(document).on('click','#admin .toolbar li',function(e){
             $(this).addClass('select');
         break;
 
+        case('comments'):
+            $('ol.section-content li, .toolbar ul.section li').removeClass('select');
+            $('ol.section-content li.comments').addClass('select');
+            $(this).addClass('select');
+        break;
+
+        case('analytics'):
+            $('ol.section-content li, .toolbar ul.section li').removeClass('select');
+            $('ol.section-content li.analytics').addClass('select');
+            $(this).addClass('select');
+        break;
+
         case('close'):
             $('#admin div.edit').empty();
         break;
     }
 });
-/* Cover Gallery */
+/* File Manager */
 fileManager = function(){
     setTimeout(() => {
         var cat = $('ul.this-gallery').attr('path');
@@ -183,6 +307,7 @@ fileManager = function(){
         
     }, 50);
 }
+/* Cover Gallery */
 galleryCreate = function(){
     var i = 0;
     var gallery = [];
@@ -192,7 +317,6 @@ galleryCreate = function(){
             i++;
         }
     });
-    console.log(gallery);
     if(gallery.length > 1) {
         gallery.join(',');
         gallery = 'arr:'+gallery;
@@ -201,10 +325,13 @@ galleryCreate = function(){
     $('#admin div.edit form [name=gallery]').val(gallery);
 }
 
-$(document).on('dblclick','div.cover, ul.this-gallery li',function(){
-    $('div.cover, ul.this-gallery li').removeClass('select');
+$(document).on('dblclick','div.cover, div.alt, ul.this-gallery li:not(.plus)',function(){
+    $('div.cover, div.alt, ul.this-gallery li').removeClass('select');
     $(this).addClass('select');
     fileManager();
+});
+$(document).on('click','ul.this-gallery li.plus',function(){
+    $(this).before('<li><a class="clear"><i class="mdi mdi-eraser fs-4x"></i></a></li>');
 });
 $(document).on('dblclick','#admin dialog dir#files li.file',function(){
     if($(this).attr('type') == 'img') {
@@ -212,6 +339,9 @@ $(document).on('dblclick','#admin dialog dir#files li.file',function(){
         if($('#admin content li.gallery').is('.select')) {
             if($('#admin content li.gallery div.cover').is('.select')) {
                 $('#admin div.edit form [name=img]').val(link);
+            }
+            if($('#admin content li.gallery div.alt').is('.select')) {
+                $('#admin div.edit form [name=altimg]').val(link);
             }
             setTimeout(() => {
                 galleryCreate();
@@ -228,22 +358,28 @@ $(document).on('click','#admin content li.gallery a.clear',function(){
         $(this).parent('li').removeAttr('style').removeAttr('data-img');
         galleryCreate();
     }
-    if($(this).parent('div')) {
-        $(this).parent('div').removeAttr('style');
+    if($(this).parent('div.cover')) {
+        $(this).parent('div.cover').removeAttr('style');
         $('#admin div.edit form [name=img]').val('');
+    }
+    if($(this).parent('div.alt')) {
+        $(this).parent('div.alt').removeAttr('style');
+        $('#admin div.edit form [name=altimg]').val('');
     }
 });
 
 /* Search Records */
 $(document).on('keyup','.search-records [name=search]',function(e){
     var search = {};
-    search['page_id'] = $('ul.list-records').attr('view_id');
+    search['view_id'] = $('#admin content').attr('view_id');
+    search['page_id'] = $('#admin content').attr('page_id');
+    search['note_id'] = $('#admin content').attr('note_id');
     search['search'] = $(this).val();
     if(e.keyCode != 8 && search['search'].length >= 3) {
-        $('ul.list-records').load('_admin/list/search.record.php',{search});
+        $('#admin content').load('_admin/list/list.records.php',{search});
     }
     else if(e.keyCode == 8 && search['search'].length == 0) {
-        $('ul.list-records').load('_admin/list/search.record.php',{search});
+        $('#admin content').load('_admin/list/list.records.php',{search});
     }
 });
 
@@ -252,7 +388,7 @@ $(document).click(function(e){
     if(!div.is(e.target) && div.has(e.target).length === 0) {
 		div.empty();
 	}
-})
+});
 
 /* FileManager */
 confirmDel = function(){
@@ -448,6 +584,73 @@ $(document).on('click','[data-action="upload"]',function() {
     });
 });
 
+$(document).on('focus','[name=date], [name=fin_date]',function(){
+    $("#admin form .select").removeClass('select');
+    $(this).parent('div').addClass('select');
+    setTimeout(() => {
+        $('#admin dialog').load('_admin/widgets/calendar.php',{data:''});
+    }, 50);
+});
+$(document).on('click','.calendaradmin [date]',function(){
+    var date = $(this).attr('date');
+    $('div.select input').val(date);
+    $('.calendaradmin [date]').removeClass('select');
+    $(this).addClass('select');
+});
+
+$(document).on('click','.calendaradmin mont a',function(){
+    var data = {};
+    data['mont'] = $(this).attr('mont');
+    data['year'] = $(this).attr('year');
+    $('#admin dialog').load('_admin/widgets/calendar.php',{data});
+});
+
+$(document).click(function(e){
+    var div = $("#admin form .select");
+    var dia = $("#admin dialog")
+    if((!div.is(e.target) && div.has(e.target).length === 0) && (!dia.is(e.target) && dia.has(e.target).length === 0)) {
+		div.removeClass('select');
+	}
+});
+
+$(document).on('focus','[name=time]',function(){
+    $("#admin form .select").removeClass('select');
+    $(this).parent('div').addClass('select');
+    var data = {};
+    var time = $(this).val();
+    time = time.split(':');
+    data['h'] = time[0];
+    data['i'] = time[1];
+    setTimeout(() => {
+        $('#admin dialog').load('_admin/widgets/clock.php',{data});
+    }, 50);
+});
+
+$(document).on('click','#admin dialog .clock i',function(){
+    var t = Number($(this).parent('div').find('li').text());
+    if($(this).parent('div').is('.hour')) { var max = 23; step = 1;}
+    else { var max = 55; var step = 5;}
+    if($(this).is('.next')) {
+        if(t < max) { t = t+step; }
+        else t = 0;
+    }
+    if($(this).is('.prev')) {
+        if(t > 0) { t = t-step; }
+        else t = max;
+    }
+    if(t < 10) t = '0'+t;
+    $(this).parent('div').find('li').text(t);
+    setTimeout(() => {
+        var time = $('#admin dialog .clock .hour li').text();
+        time += ':' + $('#admin dialog .clock .minute li').text();
+        $('#admin form .select').find('input').val(time+':00');
+    }, 50);
+});
+
+$(document).on('click','#admin form .clear',function(){
+    $(this).parent('span').parent('div').find('input').val('');
+});
+
 /* SlipWi Editor */
 // $(document).ready(function() {
     $('.slipwi .slipwi-content').attr('contenteditable','true');
@@ -485,6 +688,7 @@ $(document).on('click','[data-action="upload"]',function() {
 
     $('.slipwi .conten').focus();
     addoneFunc = function() {
+        newSort();
         var colorPalette = [
             'BFEDD2', 'FBEEB8', 'F8CAC6', 'ECCAFA', 'C2E0F4',
             '2DC26B', 'F1C40F', 'E03E2D', 'B96AD9', '3598DB',
@@ -608,6 +812,10 @@ $(document).on('click','[data-action="upload"]',function() {
             if($(this).data('value') == 'audio') {
                 url = prompt('Enter the link here: ','https://');
                 var $html = '<audio src="'+url+'" controls="controls"></audio>';
+            }
+            if($(this).data('value') == 'code') {
+                code = document.getSelection();
+                var $html = '<pre class="code">'+code+'</pre>';
             }
     
             document.execCommand($(this).data('command'), false, $html);
@@ -747,6 +955,7 @@ $(document).on('click','[data-action="upload"]',function() {
             text = document.getSelection();
             document.execCommand($(this).data('command'), false, text);
         }
+        
         else document.execCommand($(this).data('command'), false, null);
     });
     

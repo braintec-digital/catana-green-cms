@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -269,20 +269,20 @@ if($content) {
 
     // формируем OG параметры
     if($content['view']) {
-        if($content['view']['img']) $get['img'] = $get['root'].'/'.$get['filepath'].$content['view']['img'];
+        if($content['view']['img']) $get['img'] = $get['www'].'/'.$content['view']['img'];
         $SeoH1 = $content['view']['title'];
     }
     if($content['page']) {
-        if($content['page']['img']) $get['img'] = $get['root'].'/'.$get['filepath'].$content['page']['img'];
+        if($content['page']['img']) $get['img'] = $get['www'].'/'.$content['page']['img'];
         $SeoH1 = $content['page']['title'];
     }
     if($content['note']) {
-        if($content['note']['img']) $get['img'] = $get['root'].'/'.$get['filepath'].$content['note']['img'];
+        if($content['note']['img']) $get['img'] = $get['www'].'/'.$content['note']['img'];
         $SeoH1 = $content['note']['title'];
     }
     if($content['record']) {
         if($content['record']['img']){
-            $get['img'] = $get['root'].'/'.$get['filepath'].$content['record']['img'];
+            $get['img'] = $get['www'].'/'.$content['record']['img'];
             $SeoH1 = $content['record']['title'];
         }
         elseif(!$content['record']['img'] && $content['record']['video']) {
@@ -290,7 +290,7 @@ if($content) {
             $SeoH1 = $content['record']['title'];
         }
     }
-    if($get['img'] == '') {$get['img'] = $get['root'].'/'.$get['filepath'].'ogImg.png';}
+    if($get['img'] == '') $get['img'] = $get['www'].'/'.$get['tpl']['img'];
 
     // Check on Opens Parent Page
     if($get['view'] && !$get['page'] && !$get['tags'] && !$get['find'] && !$get['date'] && !$get['city']){
@@ -306,11 +306,15 @@ if($content) {
         'title' => $content['title'],
         'descript' => $content['descr'],
         'img' => $get['img'],
-        'site' => $get['root'],
-        'url' => $serv.$get['link'],
+        'site' => $get['www'],
+        'url' => $get['www'].$get['link'],
         'canonical' => $get['canonical'],
         'favicon' => $get['tpl']['favicon'],
-        'appicon' => $get['tpl']['appicon']
+        'appicon' => $get['tpl']['appicon'],
+        'share-url' => urlencode($get['www'].$get['link']),
+        'share-title' => urlencode($content['title']),
+        'share-descript' => urlencode($content['descr']),
+        'share-img' => urlencode($get['img'])
     ];
 }
 else { // 404
@@ -323,8 +327,8 @@ else { // 404
         'title' => '404',
         'descript' => 'Page Not Found',
         'img' => '',
-        'site' => $get['root'],
-        'url' => $serv.$get['link'],
+        'site' => $get['www'],
+        'url' => $get['www'].$get['link'],
         'canonical' => $get['canonical'],
         'favicon' => $get['tpl']['favicon'],
         'appicon' => $get['tpl']['appicon']

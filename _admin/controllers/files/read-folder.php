@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -52,7 +52,7 @@ foreach($list as $item) {
 foreach($list as $item) {
     if(!is_dir($path.'/'.$item)) {
         $type = checkFileType($item);
-        if($type['type'] == 'img') $view = ' help="<img src='.$root.$cat.$item.'/>"';
-        echo '<li class="file" type="'.$type['type'].'" file="'.$item.'" data-path="'.$root.$cat.$item.'" open="'.$cat.$item.'"><pics style="background-image: url('.$root.$cat.$item.')"></pics><i'.$view.' class="mdi '.$type['ico'].'"></i><p>'.$item.'</p></li>';
+        if($type['type'] == 'img') $view = ' help="<img src=userfiles/'.$cat.$item.'/>"';
+        echo '<li class="file" type="'.$type['type'].'" file="'.$item.'" data-path="userfiles/'.$cat.$item.'" open="'.$cat.$item.'"><pics style="background-image: url(userfiles/'.$cat.$item.')"></pics><i'.$view.' class="mdi '.$type['ico'].'"></i><p>'.$item.'</p></li>';
     }
 }

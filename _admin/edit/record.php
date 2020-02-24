@@ -2,15 +2,16 @@
 /* © LeoCRAFT Digital, "Catana" https://catana.leocraft.digital */
 session_start();
 $admin = $_SESSION['admin'];
-include($_SERVER['DOCUMENT_ROOT'].'/engine/config.php');
-include($_SERVER['DOCUMENT_ROOT'].'/engine/core/database/connection.php');
+include($_SERVER['DOCUMENT_ROOT'].'/_admin/config.php');
 include($_SERVER['DOCUMENT_ROOT'].'/_admin/controllers/adminFns.php');
 $type = pageData("SELECT multitype FROM pages WHERE id=".$_POST['edit']['id']);
 $table = 'records';
 if($_POST['edit']['record_id']) {
     $data = editData("SELECT * FROM $table WHERE id=".$_POST['edit']['record_id']);
 } else {
-    $data['page_id'] = $_POST['edit']['id'];
+    $data['view_id'] = $_POST['edit']['id'];
+    $data['page_id'] = '0';
+    $data['note_id'] = '0';
     $data['public'] = '0';
     $data['date'] = date('Y-m-d');
     $data['time'] = date('H:i:s');
@@ -24,12 +25,18 @@ echo '<ol class="section-content">';
 echo '<li class="select content">';
 echo '<form>';
 echo '<input type="hidden" name="table" value="'.$table.'">';
-include($_SERVER['DOCUMENT_ROOT'].'/_admin/samples/fields.'.$type['multitype'].'.php');
+
+if(file_exists($adminpath['persone'].'/samples/fields.'.$type['multitype'].'.php')) include($adminpath['persone'].'/samples/fields.'.$type['multitype'].'.php');
+else include($adminpath['global'].'/samples/fields.'.$type['multitype'].'.php');
+
 include($_SERVER['DOCUMENT_ROOT'].'/_admin/samples/generator.php');
 echo '</form>';
 echo '</li>';
 echo '<li class="gallery">';
 include($_SERVER['DOCUMENT_ROOT'].'/_admin/edit/this.gallery.php');
+echo '</li>';
+echo '<li class="comments">';
+include($_SERVER['DOCUMENT_ROOT'].'/_admin/edit/this.comments.php');
 echo '</li>';
 echo '</ol>';
 echo '<script>addoneFunc()</script>';

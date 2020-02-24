@@ -6,25 +6,22 @@ else $ogprice = number_format($content['record']['price'], 2, '.', '');
 if($content['record']['brand']) $brand = $content['record']['brand'];
 else $brand = $get['site']['title'];
 
-echo '<div itemscope itemtype="https://schema.org/Product">';
-echo '<meta itemprop="name" content="'.$itemtitle.'"/>';
-echo '<meta itemprop="sku" content="'.$content['record']['art'].'">';
-echo '<meta itemprop="description" content="'.$itemdescript.'"/>';
-echo '<meta itemprop="image" content="'.$content['record']['img'].'"/>';
-echo '<meta itemprop="url" content="'.$get['link'].'"/>';
-
-echo '<div itemprop="brand" itemscope itemtype="https://schema.org/Brand">';
-echo '<meta itemprop="name" content="'.$brand.'"/>';
-echo '</div>';
-
-echo '<div itemprop="offers" itemscope itemtype="https://schema.org/Offer">';
-echo '<meta itemprop="price" content="'.$ogprice.'"/>';
-echo '<meta itemprop="priceCurrency" content="'.$get['site']['pay_set'][1].'"/>';
-echo '<link itemprop="availability" href="http://schema.org/InStock">';
-echo '<meta itemprop="url" content="'.$get['link'].'"/>';
-echo '<meta itemprop="description" content="'.$itemdescript.'"/>';
-echo '<meta itemprop="availability" content="'.$availability[$get['lang']].'"/>';
-echo '<meta itemprop="priceValidUntil" content="'.$priceValidUntil.'"/>';
-
-echo '</div>';
-echo '</div>';
+$microtags .= '<div itemscope itemtype="https://schema.org/Product">
+<meta itemprop="name" content="'.$itemtitle.'"/>
+<meta itemprop="sku" content="'.$content['record']['art'].'">
+<meta itemprop="description" content="'.$itemdescript.'"/>
+<meta itemprop="image" content="'.$content['record']['img'].'"/>
+<meta itemprop="url" content="'.$get['link'].'"/>
+<div itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+<meta itemprop="name" content="'.$brand.'"/>
+</div>
+<div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+<meta itemprop="price" content="'.$ogprice.'"/>
+<meta itemprop="priceCurrency" content="'.$get['site']['pay_set'][1].'"/>
+<link itemprop="availability" href="http://schema.org/InStock">
+<meta itemprop="url" content="'.$get['link'].'"/>
+<meta itemprop="description" content="'.$itemdescript.'"/>
+<meta itemprop="availability" content="'.$availability[$get['lang']].'"/>
+<meta itemprop="priceValidUntil" content="'.$priceValidUntil.'"/>
+</div>
+</div>';

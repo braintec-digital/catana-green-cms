@@ -1,7 +1,7 @@
 <?php
 /**
 * © LeoCRAFT Digital, "Catana CMS" https://catana.leocraft.digital
-* @author D.A. Cherepanov <info@leocraft.com>
+* @author Dmitry Brain (D.A.Cherepanov) <info@leocraft.com>
 * @copyright LeoCRAFT Digital <catana.leocraft.digital>
 * @version 1.0
 **/
@@ -14,18 +14,18 @@ if(file_exists($get['tpl']['template'])){
     $code = file_get_contents($get['tpl']['template']);
     // Admin Panel
     $admin = '';
-    if($get['view'] == $get['tpl']['adminlink'] && !$_SESSION['admin']) {
+    if($get['enter'] && !$_SESSION['admin']) {
         $admin = file_get_contents('_admin/login.html');
         $admin = str_replace('@year',date('Y'),$admin);
         $admin .= '<style>'.file_get_contents('_admin/css/login.css').'</style>';
         $admin .= '<script>'.file_get_contents('_admin/js/login.js').'</script>';
-        $get['view'] = '';
     }
     if($_SESSION['admin']) {
         $admin = file_get_contents('_admin/admin.html');
         if(!$extantion['MaterialDesign']) $admin .= '<style>'.file_get_contents('assets/fonts/MaterialDesign.css').'</style>';
         $admin .= '<style>'.file_get_contents('_admin/css/admin.css').'</style>';
         if(!stristr($code,'/jquery') && (!$extantion['Jquery'] || !$extantion['Magic+Jquery'])) { $admin .= '<script src="assets/js/jquery-3.3.1.min.js"></script>'; }
+        $admin .= '<script src="_admin/js/jquery-ui.min.js"></script>';
         $admin .= '<script>'.file_get_contents('_admin/js/admin.js').'</script>';
     }
 

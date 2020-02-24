@@ -25,7 +25,7 @@
 body {margin-left: 60px;}
 #root nav.fixed {left: 60px;}
 
-#admin {position: fixed; display: flex; justify-content: center; align-items: center; font-family: 'Cuprum', sans-serif; font-size: 13px; top: 0; left: 0; height: 100vh; border-right: 1px solid #00ff97; box-shadow: 0 0 50px rgba(0,0,0,0.2); z-index: 99999;}
+#admin {position: fixed; display: flex; justify-content: center; align-items: center; font-family: 'Cuprum', sans-serif; font-size: 13px; top: 0; left: 0; height: 100vh; border-right: 1px solid #01ca7a; box-shadow: 0 0 50px rgba(0,0,0,0.2); z-index: 99999;}
 #admin * {font-family: 'Cuprum', sans-serif;}
 
 #admin ::-moz-selection    {background:#98ffd6; color:#333;}
@@ -45,22 +45,22 @@ body {margin-left: 60px;}
 
 #admin ::-scrollbar {direction:rtl;width: 5px;background: #fff; transition: 0.3s;-webkit-transition: 0.3s;-moz-transition:0.3s;-o-transition:0.3s;}
 #admin ::-scrollbar-track {background: #fff;}
-#admin ::-scrollbar-thumb {background: #009e5f;}
-#admin ::-scrollbar-thumb:hover {background: #00b96f;}
+#admin ::-scrollbar-thumb {background: #01ca7a;}
+#admin ::-scrollbar-thumb:hover {background: #01ca7a;}
 #admin ::-webkit-scrollbar {direction:rtl;width:5px;background: #fff;transition:0.3s;-webkit-transition:0.3s;-moz-transition:0.3s;-o-transition:0.3s;}
 #admin ::-webkit-scrollbar-track {background: #fff;}
-#admin ::-webkit-scrollbar-thumb {background: #009e5f;}
-#admin ::-webkit-scrollbar-thumb:hover {background: #00b96f;}
+#admin ::-webkit-scrollbar-thumb {background: #01ca7a;}
+#admin ::-webkit-scrollbar-thumb:hover {background: #01ca7a;}
 #admin ::-moz-scrollbar {direction: rtl;width:5px;background: #fff;transition:0.3s;-webkit-transition:0.3s;-moz-transition:0.3s;-o-transition:0.3s;}
 #admin ::-moz-scrollbar-track {background: #fff;}
-#admin ::-moz-scrollbar-thumb {background: #009e5f;}
-#admin ::-moz-scrollbar-thumb:hover {background: #00b96f;}
+#admin ::-moz-scrollbar-thumb {background: #01ca7a;}
+#admin ::-moz-scrollbar-thumb:hover {background: #01ca7a;}
 
 #admin > ul {user-select: none;}
 #admin span {line-height: 1;}
 
-#admin > p {position: absolute; transform: rotateZ(-90deg); bottom: 165px; left: -76px; color: #444; font-size: 35px; white-space: nowrap; user-select: none;}
-#admin wait {position: absolute; display: flex; justify-content: center; align-items: center; color: #00ff99; z-index: 10000;}
+#admin > p {position: absolute; transform: rotateZ(-90deg); bottom: 195px; left: -115px; color: #444; font-size: 35px; white-space: nowrap; user-select: none;}
+#admin wait {position: absolute; display: flex; justify-content: center; align-items: center; color: #01ca7a; z-index: 10000;}
 #admin dialog:not([open]) {position: fixed; display: block; box-shadow: 0 0 100px rgba(0,0,0,0.5); border: 1px solid #01ca7a; max-width: 1000px; background: #f9f9f9; font-size: 19px; padding: 0; opacity: 1; transition: 0.25s; z-index: 10000;}
 #admin dialog:not([open]):empty {box-shadow: none; border: none; opacity: 0;}
 #admin dialog > * {margin-bottom: -4px;}
@@ -70,35 +70,35 @@ body {margin-left: 60px;}
 #admin dialog div.alert a {display: flex; justify-content: center; align-items: center; height: 50px; width: 120px;}
 #admin dialog div.alert a#abort {background: #ddd; color: #333; margin-right: 5px;}
 #admin dialog div.alert a#abort:hover {background: #eee;}
-#admin dialog div.alert a#confirm {background: #009e5f; color: #eee;}
-#admin dialog div.alert a#confirm:hover {background: #00b96f;}
+#admin dialog div.alert a#confirm {background: #01ca7a; color: #eee;}
+#admin dialog div.alert a#confirm:hover {background: #01ca7a;}
 
-#admin ul.panel {height: 100vh; border-left: 5px solid #00ff97; background: #333; color: #eee; margin: 0; border-radius: 0;}
+#admin ul.panel {height: 100vh; border-left: 5px solid #01ca7a; background: #333; color: #eee; margin: 0; border-radius: 0;}
 #admin ul.panel li {position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 55px; height: 55px; font-size: 11px; color: #fff;}
 #admin ul.panel li > * {z-index: 1;}
-#admin ul.panel > li:hover {cursor: pointer; color: #00ff99; background: #555;}
+#admin ul.panel > li:hover {cursor: pointer; color: #01ca7a; background: #555;}
 #admin ul.panel > li::after {position: absolute; content: ''; width: 45px; height: 0; bottom: 0; left: 0; right: 0; margin: auto; border-bottom: 1px solid #555;}
 #admin ul.panel li:last-child {position: absolute; bottom: 0;}
-#admin ul.panel li.active {background: #01ca7a; color: #333;}
-#admin ul.panel li.active span {color: #333;}
+#admin ul.panel li.active {background: #22a26e; color: #eee;}
+#admin ul.panel li.active span {color: #eee;}
 #admin ul.panel li.active::after {display: none;}
 #admin ul.panel > div.close-panel {display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 3px 5px; width: 45px; height: 30px; background: #393939;}
 #admin ul.panel > div:hover {cursor: pointer; background: #01ca7a;}
 #admin ul.panel li span {color: #eee;}
 
 #admin ul.listing:empty {display: none;}
-#admin ul.listing {background: #eee; color: #333; width: 230px; height: 100vh; padding: 0 5px; box-shadow: 0 0 50px rgba(0,0,0,0.2); border-right: 1px solid #01ca7a;}
+#admin ul.listing {background: #eee; overflow-x: auto; color: #333; width: 230px; height: 100vh; padding: 0 5px; box-shadow: 0 0 50px rgba(0,0,0,0.2);}
 #admin ul.listing li {position: relative; display: block; cursor: auto; width: 100%; min-height: 55px; height: auto;}
-#admin ul.listing li:first-child span {font-size: 17px;}
+#admin ul.listing li.unsortable span {font-size: 17px;}
 #admin ul.listing li div {position: relative; display: flex; justify-content: flex-start; align-items: center; width: 100%; height: 55px; padding: 0 15px; font-size: 15px; border-bottom: 1px solid #ddd;}
 #admin ul.listing li div span {display: inline-flex; justify-content: flex-start; align-items: center; padding: 10px 10px 10px 0; color: #333; width: calc(100% - 30px);}
-#admin ul.listing li div span:hover {cursor: pointer; color: #009e5f;}
+#admin ul.listing li div span:hover {cursor: pointer; color: #01ca7a;}
 #admin ul.listing li div span i {margin-left: 5px; color: #ccc;}
 #admin ul.listing li i.next {position: absolute; right: 5px;}
-#admin ul.listing li i.next:hover {cursor: pointer; color: #009e5f;}
+#admin ul.listing li i.next:hover {cursor: pointer; color: #01ca7a;}
 #admin ul.listing li.active > div > i.next {transform: rotateZ(90deg);}
 #admin ul.listing li i.add-edit {position: absolute; right: 5px; top: 17px;}
-#admin ul.listing li i.add-edit:hover {color: #009e5f; cursor: pointer;}
+#admin ul.listing li i.add-edit:hover {color: #01ca7a; cursor: pointer;}
 #admin ul.listing li:last-child {position: relative;}
 #admin ul.listing li ul.second {position: relative; display: none; height: auto; left: 0; top: auto; box-shadow: none; background: #e5e5e5;}
 #admin ul.listing li ul.next {position: relative; display: none; height: auto; left: 0; top: auto; box-shadow: none; background: #dedede;}
@@ -114,11 +114,11 @@ body {margin-left: 60px;}
 #admin div.toolbar ul {display: flex;}
 #admin div.toolbar ul > li {position: relative; display: flex; justify-content: center; align-items: center; width: 50px; height: 50px; margin-right: 2px; color: #555; border-bottom: 1px solid #ddd; background: #f1f1f1; transition: 0.25s;}
 #admin div.toolbar ul > li:last-child {margin-right: 0;}
-#admin div.toolbar ul > li:hover {background: #00ff97; cursor: pointer;}
+#admin div.toolbar ul > li:hover {background: #98ffd6; cursor: pointer;}
 #admin div.toolbar ul > li i {transition: 0.25s;}
 #admin div.toolbar ul > li.save i {margin-top: 10px;}
 #admin div.toolbar ul > li.none {color: #ccc;}
-#admin div.toolbar ul > li.select {border-bottom: 1px solid #009e5f; background: #00ff97;}
+#admin div.toolbar ul > li.select {border-bottom: 1px solid #01ca7a; background: #01ca7a; color: #fff;}
 #admin div.toolbar ul > li[data-action="close"]:hover i {transform: rotateZ(90deg);}
 #admin div.toolbar ul > li ol {position: absolute; display: none; left: 0; top: 50px; width: 75px; padding: 10px 10px 5px 10px; border-top: 1px solid #009e5f; background: #eee; box-shadow: 0 0 20px rgba(0,0,0,0.2); z-index: 10;}
 #admin div.toolbar ul > li ol li {padding: 10px 5px; border-bottom: 1px solid #ddd; font-size: 15px;}
@@ -143,38 +143,44 @@ body {margin-left: 60px;}
 #admin div.toolbar .parents-menu:hover ul li,
 #admin div.toolbar .parents-menu:hover ul li:hover {background: transparent;}
 #admin div.toolbar .parents-menu:hover ul li span {font-size: 17px; color: #ddd;}
-#admin div.toolbar .parents-menu:hover ul li span:hover {color: #00ff99;}
+#admin div.toolbar .parents-menu:hover ul li span:hover {color: #01ca7a;}
 #admin div.toolbar .parents-menu:hover ul li.root i {margin-right: 10px; color: #ddd;}
 #admin div.toolbar .parents-menu:hover ul li.root span {display: flex; justify-content: flex-start; align-items: center; font-size: 15px;}
 #admin div.toolbar .parents-menu:hover ul li i.next {position: absolute; right: 5px; color: #ddd;}
 #admin div.toolbar .parents-menu:hover ul li.active i.next {transform: rotateZ(90deg);}
-#admin div.toolbar .parents-menu:hover ul li i.next:hover {color: #00ff99;}
+#admin div.toolbar .parents-menu:hover ul li i.next:hover {color: #01ca7a;}
 #admin div.toolbar .parents-menu:hover ul li ul {position: relative; display: none; width: 100%; background: #444;}
 #admin div.toolbar .parents-menu:hover ul li ul li div {border-bottom-color: #555;}
 #admin div.toolbar .parents-menu:hover ul li.active ul {display: block;}
+#admin div.toolbar .parents-menu:hover ul li.service {flex-direction: row; background: #444; color: #777; min-height: 40px;}
+#admin div.toolbar .parents-menu:hover ul li.service i {margin-right: 10px;}
+#admin div.toolbar .parents-menu:hover ul li.service i:last-child {margin-right: 0;}
+#admin div.toolbar .parents-menu:hover ul li.service i:hover {color: #01ca7a; cursor: pointer;}
 
 #admin div.edit:empty {display: none;}
-#admin div.edit {position: relative; width: calc(100vw - 400px); max-width: 950px; height: 100vh; background: #fbfbfb; border-right: 1px solid #01ca7a; z-index: 9997;}
+#admin div.edit {position: relative; width: calc(100vw - 400px); max-width: 950px; height: 100vh; background: #fbfbfb; z-index: 9997;}
 
 #admin div.edit content {display: block; padding: 0 25px 25px 25px; position: absolute; top: 100px; width: 100%; color: #333; height: calc(100vh - 100px); overflow-y: auto;}
 
 #admin div.edit content ul.listing-records {display: flex; flex-direction: column; padding-bottom: 100px;}
-#admin div.edit content ul.listing-records li {display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #eee;}
+#admin div.edit content ul.listing-records li {display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid #eee; background: #fbfbfb;}
 #admin div.edit content ul.listing-records li:first-child {padding-top: 0;}
 #admin div.edit content ul.listing-records li:last-child {padding-bottom: 0; border-bottom: none;}
 #admin div.edit content ul.listing-records li div.cover {display: flex; justify-content: center; align-items: center; background-size: cover; background-position: center; background-repeat: no-repeat; width: 100px; height: 100px; border: 1px solid #ddd;}
 #admin div.edit content ul.listing-records li div.func-admin {opacity: 0.7;}
 #admin div.edit content ul.listing-records li div.func-admin:hover {opacity: 1;}
 #admin div.edit content ul.listing-records li div.func-admin a {display: flex; justify-content: center; align-items: center; width: 32px; height: 32px; border: 1px solid #ddd; color: #aaa; margin-bottom: 1px;}
-#admin div.edit content ul.listing-records li div.func-admin a:hover {border: 1px solid #00b96f;}
+#admin div.edit content ul.listing-records li div.func-admin a:hover {border: 1px solid #01ca7a;}
 #admin div.edit content ul.listing-records li div.func-admin a:last-child {margin-bottom: 0;}
 #admin div.edit content ul.listing-records li.off {opacity: 0.5;}
 #admin div.edit content ul.listing-records li p {color: #444; font-size: 19px;}
+#admin div.edit content ul.listing-records li.placeholder {min-height: 110px; padding: 5px 0; background: #eee;}
 
 #admin div.edit content > ol.section-content {}
 #admin div.edit content > ol.section-content > li {position: relative; display: none; flex-direction: column;}
 #admin div.edit content > ol.section-content > li.select {display: flex;}
-#admin div.edit content > ol.section-content > li.gallery {padding-bottom: 100px;}
+#admin div.edit content > ol.section-content > li.gallery {padding-bottom: 100px; flex-direction: row; flex-wrap: wrap;}
+#admin div.edit content > ol.section-content > li.gallery p {padding: 10px; background: #eee; margin-top: 10px;}
 
 #admin div.edit content form {display: block; padding-bottom: 100px; width: 100%;}
 #admin div.edit content form > div {width: 100%;}
@@ -193,29 +199,42 @@ body {margin-left: 60px;}
 #admin div.edit content form > div.cluster {display: flex; border: none;}
 #admin div.edit content form > div.cluster div {margin-bottom: 0; margin-right: 5px; width: 50%;}
 #admin div.edit content form > div.cluster div:last-child {margin-right: 0;}
-#admin div.edit content form .green {color: #009e5f;}
+#admin div.edit content form .green {color: #01ca7a;}
+#admin div.edit content form .clear:hover {color: #01ca7a !important; cursor: pointer;}
+#admin div.edit content form > div.cluster div.select {border: 1px solid #01ca7a;}
+#admin div.edit content form div span i:not(.green) {color: #999;}
 
-#admin div.edit .section-content * {color: #333; line-height: 1.2;}
-#admin div.edit .section-content div.cover {position: relative; display: flex; justify-content: center; align-items: center; width: 100%; height: 100px; border: 1px solid #ddd; background-color: #fff; background-position: center; background-size: contain; background-repeat: no-repeat;}
-#admin div.edit .section-content div.cover[style] {height: 300px;}
-#admin div.edit .section-content div.cover:hover {border: 1px solid #009e5f;}
-#admin div.edit .section-content ul.this-gallery {display: flex; flex-wrap: wrap; margin-top: 10px;}
-#admin div.edit .section-content ul.this-gallery li {position: relative; display: flex; justify-content: center; align-items: center; width: 170px; height: 170px; border: 1px solid #ddd; margin: 0 10px 10px 0; background-color: #fff; background-position: center; background-size: contain; background-repeat: no-repeat;}
-#admin div.edit .section-content ul.this-gallery li:nth-of-type(5n) {margin-right: 0;}
-#admin div.edit .section-content ul.this-gallery li:hover {border: 1px solid #009e5f;}
+/* #admin div.edit .section-content * {color: #333; line-height: 1.2;} */
+#admin div.edit .section-content div.cover {position: relative; display: flex; justify-content: center; align-items: center; width: 65%; height: 100px; border: 1px solid #ddd; background-color: #fff; background-position: center; background-size: contain; background-repeat: no-repeat;}
+#admin div.edit .section-content div.cover::before {position: absolute; content: 'Cover'; top: 10px; left: 10px; padding: 10px; background: #eee;}
+#admin div.edit .section-content div.alt {position: relative; display: flex; justify-content: center; align-items: center; width: calc(35% - 10px); margin-left: 10px; border: 1px solid #ddd; background-color: #fff; background-position: center; background-size: contain; background-repeat: no-repeat;}
+#admin div.edit .section-content div.alt::before {position: absolute; content: 'Alt Img'; top: 10px; left: 10px; padding: 10px; background: #eee;}
+#admin div.edit .section-content div.cover[style],
+#admin div.edit .section-content div.alt[style] {height: 300px;}
+#admin div.edit .section-content div.cover:hover,
+#admin div.edit .section-content div.alt:hover {border: 1px solid #01ca7a;}
+#admin div.edit .section-content ul.this-gallery {display: flex; flex-wrap: wrap; padding: 10px 0 0 10px; border: 1px solid #ddd; width: 100%;}
+#admin div.edit .section-content ul.this-gallery li {position: relative; display: flex; justify-content: center; align-items: center; width: calc(100% / 5 - 10px); height: 170px; border: 1px solid #ddd; margin: 0 10px 10px 0; background-color: #fff; background-position: center; background-size: contain; background-repeat: no-repeat;}
+#admin div.edit .section-content ul.this-gallery li:hover {border: 1px solid #01ca7a;}
 #admin div.edit .section-content div.cover a,
-#admin div.edit .section-content ul.this-gallery li a {position: absolute; top: 10px; right: 10px; display: none; width: 40px; height: 40px; justify-content: center; align-items: center; background: #009e5f; color: #eee;}
+#admin div.edit .section-content div.alt a,
+#admin div.edit .section-content ul.this-gallery li a {position: absolute; top: 10px; right: 10px; display: none; width: 40px; height: 40px; border-radius: 20px; justify-content: center; align-items: center; background: #01ca7a; color: #eee;}
 #admin div.edit .section-content div.cover a i,
+#admin div.edit .section-content div.alt a i,
 #admin div.edit .section-content ul.this-gallery li a i {color: #eee;}
 #admin div.edit .section-content div.cover[style]:hover a,
+#admin div.edit .section-content div.alt[style]:hover a,
 #admin div.edit .section-content ul.this-gallery li[style]:hover a {display: flex;}
 #admin div.edit .section-content div.cover a:hover,
 #admin div.edit .section-content ul.this-gallery li a:hover {background: #01ca7a;}
+#admin div.edit .section-content ul.this-gallery li.placeholder {background: #ddd; width: calc(100% / 5 - 10px); height: 170px; border: 1px solid #ddd;}
+#admin div.edit .section-content ul.this-gallery li.plus {background: #01ca7a; color: #fff;}
+#admin div.edit .section-content ul.this-gallery li.plus:hover {background: #01ca7a; cursor: pointer;}
 
 #admin dir#files {display: block; margin: 0; padding: 0 0 100px 0; width: 100%; height: 100%; font-size: 15px; color: #555; -moz-user-select: none; -khtml-user-select: none; user-select: none;}
-#admin dir#files div {display: flex; justify-content: flex-start; align-items: center; padding: 10px 5px; font-size: 17px; border-bottom: 1px solid #51977b; background: #fff; width: 100%;}
-#admin dir#files div i {margin-right: 10px; color: #009e5f;}
-#admin dir#files div b {margin: 5px; color: #51977b;}
+#admin dir#files div {display: flex; justify-content: flex-start; align-items: center; padding: 10px 5px; font-size: 17px; border-bottom: 1px solid #01ca7a; background: #fff; width: 100%;}
+#admin dir#files div i {margin-right: 10px; color: #01ca7a;}
+#admin dir#files div b {margin: 5px; color: #01ca7a;}
 #admin dir#files li {position: relative; list-style: none; float: left; display: flex; justify-content: flex-start; align-items: center; padding: 5px; border-bottom: 1px solid #eee; width: 100%; height: auto;}
 #admin dir#files li p {color: #555;}
 #admin dir#files li:hover {background: #fff;}
@@ -224,14 +243,14 @@ body {margin-left: 60px;}
 #admin dir#files li i {margin-right: 10px; font-size: 25px;}
 #admin dir#files:not(.viewgrid) li pics {display: none;}
 #admin dir#files li.folder i {color: #fb0;}
-#admin dir#files li.file i {color: #51977b;}
+#admin dir#files li.file i {color: #01ca7a;}
 #admin dir#files.viewgrid li {width: 124px; overflow: hidden; height: 124px; flex-direction: column; justify-content: center; border: 1px solid #eee; padding: 5px; margin: 5px 5px 0 0;}
 #admin dir#files.viewgrid li:nth-of-type(7n) {margin-right: 0;}
 #admin dir#files.viewgrid li i {margin-right: 0;}
 #admin dir#files.viewgrid li.folder i {font-size: 60px; margin-top: -30px;}
 #admin dir#files.viewgrid li.file i {margin-top: -35px; font-size: 50px;}
 #admin dir#files.viewgrid li.file[type=img] i {display: none;}
-#admin dir#files.viewgrid li pics {width: 100%; margin-top: -35px; min-height: 75px; background-size: cover; border: 1px solid #ddd;}
+#admin dir#files.viewgrid li pics {width: 100%; margin-top: -35px; min-height: 75px; background-size: cover; background-position: center; background-color: #f2f2f2; border: 1px solid #ddd;}
 #admin dir#files.viewgrid li.file:not([type=img]) pics {display: none;}
 #admin dir#files.viewgrid li p {position: absolute; overflow: hidden; display: flex; justify-content: center; align-items: center; bottom: 5px; font-size: 12px; text-align: center; height: 30px; padding: 0 5px;}
 #admin dir#files li span {position: absolute; z-index: 99; right: 15px; color: #fb0;}
@@ -242,6 +261,29 @@ body {margin-left: 60px;}
 #admin dialog dir#files {width: 795px; height: 600px; padding: 10px;}
 #admin dialog div.toolbar {top: -60px; right: 0px; padding: 10px 10px 0 10px; width: auto; border: 1px solid #01ca7a; border-bottom: none; background: #f9f9f9;}
 
+#admin dialog div.calendaradmin {margin: 10px; user-select: none; min-height: 287px;}
+#admin dialog div.calendaradmin mont {display: flex; justify-content: space-between; padding: 5px 10px 10px 10px;}
+#admin dialog div.calendaradmin mont a {color: #333;}
+#admin dialog div.calendaradmin mont a:hover {color: #01ca7a;}
+#admin dialog div.calendaradmin mont p {color: #01ca7a; text-transform: uppercase;}
+#admin dialog div.calendaradmin table {}
+#admin dialog div.calendaradmin table thead tr {background: #fff;}
+#admin dialog div.calendaradmin table thead td {border-bottom: 1px solid #01ca7a;}
+#admin dialog div.calendaradmin table td {padding: 10px 10px 10px 20px; border: 1px solid #eee; color: #777; font-size: 15px;}
+#admin dialog div.calendaradmin table td.weekend {color: #01ca7a;}
+#admin dialog div.calendaradmin table td.now {background: #01ca7a; color: #fff;}
+#admin dialog div.calendaradmin table tbody td:not(:empty):hover {cursor: pointer; background: #98ffd6; color: #555;}
+#admin dialog div.calendaradmin table tbody td.now:hover {cursor: pointer; background: #01ca7a; color: #fff;}
+#admin dialog div.calendaradmin table tbody td.select {background: #fff; box-shadow: inset 0 0 0 1px #01ca7a;}
+
+#admin dialog div.clock {display: flex; justify-content: center; align-items: center; margin: 10px; border: 1px solid #aaa;}
+#admin dialog div.clock div {position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #fff;}
+#admin dialog div.clock div.hour::after {position: absolute; right: -4px; top: 25px; font-size: 50px; content: ':'; color: #fff;}
+#admin dialog div.clock div i {font-size: 25px;}
+#admin dialog div.clock div i:hover {cursor: pointer; color: #01ca7a;}
+#admin dialog div.clock div ul {position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #01ca7a;}
+#admin dialog div.clock div ul li {display: flex; justify-content: center; align-items: center; width: 70px; height: 50px; font-size: 45px; padding-top: 5px; color: #eee;}
+
 #admin .library:empty {display: none;}
 #admin .library {position: absolute; display: block; width: 700px; height: 500px; background: #eee; box-shadow: 0 0 50px rgba(0,0,0,0.3); top: 0; left: 0; bottom: 0; right: 0; margin: auto; z-index: 99999;}
 
@@ -249,12 +291,12 @@ body {margin-left: 60px;}
 #admin div.edit form > .slipwi {display: block; background: #f9f9f9; border: 1px solid #ddd; margin-bottom: 5px;}
 #admin .slipwi.max {position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 999999;}
 
-#admin .slipwi .title {display: none; width: 100%; height: 50px; padding: 0; background: #00b96f; color: #fff;}
+#admin .slipwi .title {display: none; width: 100%; height: 50px; padding: 0; background: #01ca7a; color: #fff;}
 #admin .slipwi .title h1 {font-size: 25px; margin: 0; padding: 0; color: #fff;}
 #admin .slipwi .title i {}
 #admin .slipwi.max .title {display: flex; justify-content: flex-start; align-items: center;}
 
-#admin .slipwi .slipwi-toolbar {position: relative; display: flex; justify-content: flex-start; align-items: center; border-bottom: 1px solid #00b96f; min-height: 42px; padding: 3px; margin: 0; list-style: none; background: #ffffff; z-index: 15;}
+#admin .slipwi .slipwi-toolbar {position: relative; display: flex; justify-content: flex-start; align-items: center; border-bottom: 1px solid #01ca7a; min-height: 42px; padding: 3px; margin: 0; list-style: none; background: #ffffff; z-index: 15;}
 #admin .slipwi .slipwi-toolbar div.temp {position: absolute; display: none;}
 #admin .slipwi .slipwi-toolbar li {position: relative; margin: 0; width: auto;}
 #admin .slipwi .slipwi-toolbar span {display: flex; justify-content: center; align-items: center; width: 15px; height: 35px; padding-right: 2px;}
@@ -265,10 +307,10 @@ body {margin-left: 60px;}
 #admin .slipwi .slipwi-toolbar li a b {display: inline-block; text-align: center; font-size: 13px; width: 55px;}
 #admin .slipwi .slipwi-toolbar li a,
 #admin .slipwi .slipwi-toolbar li > div {position: relative; display: flex; justify-content: center; align-items: center; min-width: 35px; height: 35px; border: none; color: #333; margin-bottom: 0;}
-#admin .slipwi .slipwi-toolbar li > div div {position: absolute; top: 35px; left: -5px; display: none; flex-wrap: wrap; padding: 3px; box-shadow: 0 0 25px rgba(0,0,0,0.2); background: #fff; border: 1px solid #ddd; border-top: 2px solid #00b96f; z-index: 10;}
+#admin .slipwi .slipwi-toolbar li > div div {position: absolute; top: 35px; left: -5px; display: none; flex-wrap: wrap; padding: 3px; box-shadow: 0 0 25px rgba(0,0,0,0.2); background: #fff; border: 1px solid #ddd; border-top: 2px solid #01ca7a; z-index: 10;}
 #admin .slipwi .slipwi-toolbar li > div div::before,
 #admin .slipwi .slipwi-toolbar li > a div.seltable::before,
-#admin .slipwi .slipwi-toolbar li > a div.selblock::before {position: absolute; content: ''; width: 10px; height: 10px; left: 0; right: 0; margin: auto; top: -3px; transform: rotateZ(45deg); background: #00b96f; z-index: 0;}
+#admin .slipwi .slipwi-toolbar li > a div.selblock::before {position: absolute; content: ''; width: 10px; height: 10px; left: 0; right: 0; margin: auto; top: -3px; transform: rotateZ(45deg); background: #01ca7a; z-index: 0;}
 #admin .slipwi .slipwi-toolbar li > div div::after,
 #admin .slipwi .slipwi-toolbar li > a div.seltable::after,
 #admin .slipwi .slipwi-toolbar li > a div.selblock::after {position: absolute; content: ''; width: 100%; height: 10px; top: 0; left: 0; background: #fff; z-index: 1;}
@@ -277,7 +319,7 @@ body {margin-left: 60px;}
 #admin .slipwi .slipwi-toolbar li > div:hover div {display: flex;}
 #admin .slipwi .slipwi-toolbar li > div div a {border-right: none; border-bottom: 1px solid #eee;}
 #admin .slipwi .slipwi-toolbar li > div div a:last-child {border-bottom: none;}
-#admin .slipwi .slipwi-toolbar a.active, .slipwi-toolbar a.active:hover {background: #00ff97;}
+#admin .slipwi .slipwi-toolbar a.active, .slipwi-toolbar a.active:hover {background: #01ca7a;}
 #admin .slipwi .slipwi-toolbar li {display: flex; border-right: 1px solid #ddd;}
 #admin .slipwi .slipwi-toolbar li:last-child {position: absolute; right: 3px; border-right: none; border-left: 1px solid #ddd;}
 #admin .slipwi .slipwi-toolbar .color,
@@ -293,35 +335,35 @@ body {margin-left: 60px;}
 #admin .slipwi .slipwi-toolbar .fill a[data-value="#FFFFFF"] {overflow: hidden;}
 #admin .slipwi .slipwi-toolbar .fill a[data-value="#FFFFFF"]::before {position: absolute; content: ''; width: 50px; height: 2px; background: red; transform: rotateZ(-45deg);}
 
-#admin .slipwi .slipwi-toolbar .seltable {position: absolute; display: none; padding: 0; top: 35px; left: -64px; width: 162px; height: auto; padding: 5px; background: #fff; border: 1px solid #ddd; border-top: 2px solid #00b96f; box-shadow: 0 0 25px rgba(0,0,0,0.2);}
+#admin .slipwi .slipwi-toolbar .seltable {position: absolute; display: none; padding: 0; top: 35px; left: -64px; width: 162px; height: auto; padding: 5px; background: #fff; border: 1px solid #ddd; border-top: 2px solid #01ca7a; box-shadow: 0 0 25px rgba(0,0,0,0.2);}
 #admin .slipwi .slipwi-toolbar li.table:not(.hide):hover .seltable {display: block;}
 #admin .slipwi .slipwi-toolbar .seltable:hover {background: #fff;}
 #admin .slipwi .slipwi-toolbar .seltable table {width: 100%; position: relative; border-spacing: 2px; border-collapse: separate; margin: 0;}
 #admin .slipwi .slipwi-toolbar .seltable table td {height: 10px; border: 1px solid #ddd; padding: 0;}
 #admin .slipwi .slipwi-toolbar .seltable table td:hover,
-#admin .slipwi .slipwi-toolbar .seltable table td.select:hover {background: #00ff99;}
+#admin .slipwi .slipwi-toolbar .seltable table td.select:hover {background: #01ca7a;}
 #admin .slipwi .slipwi-toolbar .seltable table td.select {background: #98ffd6; border: 1px solid #01ca7a;}
 #admin .slipwi .slipwi-toolbar .seltable p {display: block; padding: 3px; margin: 0; font-size: 13px; text-align: center;}
 
-#admin .slipwi .slipwi-toolbar .selblock {position: absolute; display: none; padding: 0; top: 35px; left: -64px; width: 162px; height: auto; padding: 5px; background: #fff; border: 1px solid #ddd; border-top: 2px solid #00b96f; box-shadow: 0 0 25px rgba(0,0,0,0.2);}
+#admin .slipwi .slipwi-toolbar .selblock {position: absolute; display: none; padding: 0; top: 35px; left: -64px; width: 162px; height: auto; padding: 5px; background: #fff; border: 1px solid #ddd; border-top: 2px solid #01ca7a; box-shadow: 0 0 25px rgba(0,0,0,0.2);}
 #admin .slipwi .slipwi-toolbar li.table:not(.hide):hover .selblock {display: block;}
 #admin .slipwi .slipwi-toolbar .selblock:hover {background: #fff;}
 #admin .slipwi .slipwi-toolbar .selblock table {width: 100%; position: relative; border-spacing: 2px; border-collapse: separate; z-index: 3;}
 #admin .slipwi .slipwi-toolbar .selblock table td {height: 15px; border: 1px solid #ddd; padding: 0;}
 #admin .slipwi .slipwi-toolbar .selblock table td:hover,
-#admin .slipwi .slipwi-toolbar .selblock table td.select:hover {background: #00ff99;}
+#admin .slipwi .slipwi-toolbar .selblock table td.select:hover {background: #01ca7a;}
 #admin .slipwi .slipwi-toolbar .selblock table td.select {background: #98ffd6; border: 1px solid #01ca7a;}
 #admin .slipwi .slipwi-toolbar .selblock p {display: block; padding: 3px; margin: 0; font-size: 13px; text-align: center;}
 
 #admin .slipwi .slipwi-toolbar a:hover, #admin .slipwi .slipwi-toolbar li > div:hover {background: radial-gradient(#eee, #eee 30%, #fff); cursor: pointer;}
 #admin .slipwi.html .slipwi-toolbar li:not(.always) {display: none;}
-#admin .slipwi [help]::before {position: absolute; display: none; top: -25px; content: attr(help); font-size: 12px; color: #fff; background: #00b96f; box-shadow: 0 5px 10px -5px rgba(0,0,0,0.2); padding: 5px; white-space: nowrap;}
+#admin .slipwi [help]::before {position: absolute; display: none; top: -25px; content: attr(help); font-size: 12px; color: #fff; background: #01ca7a; box-shadow: 0 5px 10px -5px rgba(0,0,0,0.2); padding: 5px; white-space: nowrap;}
 #admin .slipwi .slipwi-toolbar div [help]::before {top: auto; left: 35px; font-size: 11px;}
 #admin .slipwi [help]:hover::before {display: block;}
 #admin .slipwi .slipwi-toolbar .hide {display: none;}
 
 #admin .slipwi .slipwi-toolbar li a.min {display: none;}
-#admin .slipwi.max .slipwi-toolbar li a.min {display: flex; background: #00b96f; color: #fff;}
+#admin .slipwi.max .slipwi-toolbar li a.min {display: flex; background: #01ca7a; color: #fff;}
 #admin .slipwi.max .slipwi-toolbar li a.max {display: none;}
 #admin .slipwi.max .slipwi-content {padding: 50px;}
 
@@ -345,7 +387,7 @@ body {margin-left: 60px;}
 #admin .slipwi .slipwi-content i {font-style: italic;}
 #admin .slipwi .slipwi-content b {font-weight: bold;}
 #admin .slipwi .slipwi-content span {line-height: 1;}
-#admin .slipwi .slipwi-content a {position: relative; color: #00b96f; z-index: 0;}
+#admin .slipwi .slipwi-content a {position: relative; color: #01ca7a; z-index: 0;}
 #admin .slipwi .slipwi-content a:hover {color: #01ca7a;}
 #admin .slipwi .slipwi-content a::before {position: absolute; display: none; top: -20px; left: 0; content: attr(href); font-size: 12px; color: #fff; background: #ccc; box-shadow: 0 5px 10px -5px rgba(0,0,0,0.2); padding: 5px; white-space: nowrap;}
 #admin .slipwi .slipwi-content a:hover::before {display: block;}
@@ -381,13 +423,13 @@ body {margin-left: 60px;}
 #admin .slipwi .slipwi-content table tr td > table {margin: 0;}
 #admin .slipwi .slipwi-content table tr td::content {padding: 0 10px;}
 #admin .slipwi .slipwi-content table tr td.select::before,
-#admin .slipwi .slipwi-content table tr td.selected::before {position: absolute; content: ''; top: -1px; left: -1px; width: calc(100% + 2px); height: calc(100% + 2px); border: 1px solid #00b96f; z-index: 1;}
+#admin .slipwi .slipwi-content table tr td.selected::before {position: absolute; content: ''; top: -1px; left: -1px; width: calc(100% + 2px); height: calc(100% + 2px); border: 1px solid #01ca7a; z-index: 1;}
 #admin .slipwi .slipwi-content table tr td:hover {}
 
 #admin .slipwi .slipwi-content ul[cols] {position: relative; display: flex; flex-wrap: wrap; list-style: none; width: 100%; padding: 0; margin: 15px 0;}
 #admin .slipwi .slipwi-content ul[cols] li {display: flex; border: 1px solid #ddd; margin: 1px; min-height: 50px;}
 #admin .slipwi .slipwi-content ul[cols] li.select,
-#admin .slipwi .slipwi-content ul[cols] li.selected {border: 1px solid #00b96f;}
+#admin .slipwi .slipwi-content ul[cols] li.selected {border: 1px solid #01ca7a;}
 #admin .slipwi .slipwi-content ul[cols='1'] > li {width: calc(100% - 2px);}
 #admin .slipwi .slipwi-content ul[cols='2'] > li {width: calc(100% / 2 - 4px);}
 #admin .slipwi .slipwi-content ul[cols='3'] > li {width: calc(100% / 3 - 4px);}
@@ -402,22 +444,23 @@ body {margin-left: 60px;}
 #admin .slipwi .slipwi-content table::before {content: 'Table';}
 #admin .slipwi .slipwi-content ul[cols]:hover::before,
 #admin .slipwi .slipwi-content table:hover::before {display: block;}
+#admin .slipwi .slipwi-content pre.code {display: block; padding: 10px; border: 1px solid #ddd; background: #eee; margin: 15px 0;}
 
-#admin .slipwi .slipwi-content ::-moz-selection    {background:#98ffd6;}
-#admin .slipwi .slipwi-content ::-webkit-selection {background:#98ffd6;}
-#admin .slipwi .slipwi-content ::selection         {background:#98ffd6;}
-#admin .slipwi .slipwi-content ::-ms-selection     {background:#98ffd6;}
-#admin .slipwi .slipwi-content ::-o-selection      {background:#98ffd6;}
+#admin .slipwi .slipwi-content ::-moz-selection    {background:#98f6ff;}
+#admin .slipwi .slipwi-content ::-webkit-selection {background:#98f6ff;}
+#admin .slipwi .slipwi-content ::selection         {background:#98f6ff;}
+#admin .slipwi .slipwi-content ::-ms-selection     {background:#98f6ff;}
+#admin .slipwi .slipwi-content ::-o-selection      {background:#98f6ff;}
 
-#admin .slipwi .slipwi-content table div.table-set {position: absolute; display: flex; justify-content: center; align-items: center; left: 0; right: 0; top: -42px; margin: auto; width: 249px; height: 44px; padding: 2px; background: #fff; border: 1px solid #ddd; border-bottom: 2px solid #00b96f; box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2); z-index: 11;}
-#admin .slipwi .slipwi-content table div.table-set::before {position: absolute; content: ''; width: 10px; height: 10px; left: 0; right: 0; margin: auto; bottom: -3px; transform: rotateZ(45deg); background: #00b96f; z-index: 0;}
+#admin .slipwi .slipwi-content table div.table-set {position: absolute; display: flex; justify-content: center; align-items: center; left: 0; right: 0; top: -42px; margin: auto; width: 249px; height: 44px; padding: 2px; background: #fff; border: 1px solid #ddd; border-bottom: 2px solid #01ca7a; box-shadow: 0 10px 20px -5px rgba(0,0,0,0.2); z-index: 11;}
+#admin .slipwi .slipwi-content table div.table-set::before {position: absolute; content: ''; width: 10px; height: 10px; left: 0; right: 0; margin: auto; bottom: -3px; transform: rotateZ(45deg); background: #01ca7a; z-index: 0;}
 #admin .slipwi .slipwi-content table div.table-set::after {position: absolute; content: ''; width: 100%; height: 10px; bottom: 0; left: 0; background: #fff; z-index: 1;}
 #admin .slipwi .slipwi-content table div.table-set a {display: flex; justify-content: center; align-items: center; width: 35px; height: 35px; color: #333; border-right: 1px solid #ddd; z-index: 10;}
 #admin .slipwi .slipwi-content table div.table-set a:last-child {border-right: none;}
 #admin .slipwi .slipwi-content table div.table-set a:hover {cursor: default; background: radial-gradient(#eee, #eee 30%, #fff);}
 #admin .slipwi .slipwi-content table div.table-set a:hover::before {display: none;}
 
-#admin .slipwi .slipwi-content #wrap-select {position: relative; outline: 1px solid #00b96f;}
+#admin .slipwi .slipwi-content #wrap-select {position: relative; outline: 1px solid #01ca7a;}
 #admin .slipwi .slipwi-content #wrap-select::before {position: absolute; display: block; content: ''; width: 10px; height: 30px; top: 0; bottom: 0; right: -5px; margin: auto; background: #01ca7a; z-index: 11; cursor: ew-resize;}
 #admin .slipwi .slipwi-content #wrap-select::after {position: absolute; display: block; content: ''; width: 30px; height: 10px; left: 0; bottom: -5px; right: 0px; margin: auto; background: #01ca7a; z-index: 11; cursor: ns-resize;}
 #admin .slipwi .slipwi-content #wrap-select video {margin: 0;}
