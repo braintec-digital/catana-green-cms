@@ -2,9 +2,9 @@
 /* © LeoCRAFT Digital, "Catana" https://catana.leocraft.digital */
 // Base Connection
 $host = [
-    'base' => 'catana-green',
-    'user' => 'admin_trone',
-    'pass' => '!9&7TreeMind%0@',
+    'base' => '',
+    'user' => '',
+    'pass' => '',
     'addr' => '127.0.0.1'
 ];
 // Template

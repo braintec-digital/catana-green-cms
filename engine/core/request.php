@@ -100,3 +100,5 @@ if($get['view'] == $get['tpl']['adminlink']) {
     $get['view'] = '';
     $get['enter'] = 'admin';
 }
+
+$get['cart'] = $_SESSION['cart'];
